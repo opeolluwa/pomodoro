@@ -28,7 +28,7 @@ export default function WelcomePage() {
         </Button>
 
         <Button
-          href="/auth/login"
+          href="/auth/sign-up"
           className="shadow rounded-[5px] font-[20px] py-[15px] px-[20px] text-center text-[#f5f5f5] bg-[#75CE8E]"
         >
           Sign Up
