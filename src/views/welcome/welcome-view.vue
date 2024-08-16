@@ -12,19 +12,18 @@
       Increase your productivity and manage your time effectively with Pomodore.
     </p>
     <div class="flex flex-col gap-8">
-      <RouterLink 
-       :to="{ name: 'sign-up' }"
+      <a href="/sign-up"
         class="shadow rounded-[5px] font-[20px] py-[15px] px-[20px] text-center text-neutral bg-[#f5f5f5]"
       >
         Sign up
-      </RouterLink>
+      </a>
 
-      <RouterLink
-        :to="{ name: 'login' }"
+      <a
+        href="/login"
         class="shadow rounded-[5px] font-[20px] py-[15px] px-[20px] text-center text-[#f5f5f5] bg-[#75CE8E]"
       >
         Sign In
-      </RouterLink>
+      </a>
 
       <button
         class="shadow rounded-[5px] font-[20px] py-[15px] px-[20px] text-center text-neutral bg-white flex items-center justify-center gap-2"
