@@ -55,7 +55,7 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
-          <View className="min-h-[200px] flex justify-center items-center bg-[rgba(245, 245, 245, .75)] border-2 my-4 rounded border-white"></View>
+          <View className="min-h-[200px] flex px-12 justify-center items-center bg-[rgba(245, 245, 245, .75)] border-2 my-4 rounded border-white"></View>
           <Button className="bg-[#f7f7f7] flex justify-center items-center gap-2 w-full">
             <PlayIcon className="w-6 h-6 text-app"></PlayIcon> Start
           </Button>
