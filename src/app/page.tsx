@@ -1,44 +1,66 @@
 import Button from "@/components/Button";
-import PageLayout from "@/layouts/PageLayout";
+import Card from "@/components/Card";
+import Heading from "@/components/Heading";
+import SmallText from "@/components/SmallText";
+import View from "@/components/View";
+import DashboardLayout from "@/layouts/DashboardLayout";
+import { BellIcon } from "@heroicons/react/24/outline";
+import { PlayIcon } from "@heroicons/react/24/solid";
 import React from "react";
 
-export default function WelcomePage() {
+export function HomePageHeader(): React.JSX.Element {
   return (
-    <PageLayout className="bg-white">
-      <h1 className="font-bold leading-[22px] text-center text-[18px]">
-        Welcome!
-      </h1>
-      <div className="flex justify-center items-center mt-24">
-        <img
-          src="../../assets/welcome-page-illustration.png"
-          alt=""
-          className="p-4 mt-12 w-[180px]"
-        />
-      </div>
-      <p className="leading-8 text-center p-[14px] py-4">
-        Increase your productivity and manage your time effectively with
-        Pomodore.
-      </p>
-      <div className="flex flex-col gap-8">
-        <Button
-          href="/auth/login"
-          className="shadow rounded-[5px] font-[20px] py-[15px] px-[20px] text-center text-neutral bg-[#f5f5f5]"
-        >
-          Sign In
-        </Button>
+    <View className="flex items-center justify-between p-0 m-0">
+      <View>
+        <SmallText className="font-normal -mb-1">Good afternoon</SmallText>
+        <Heading className="text-[16px]">Scarlet Anderson</Heading>
+      </View>
+      <Button href="/notification ">
+        <BellIcon className="w-6 h-6"></BellIcon>
+      </Button>
+    </View>
+  );
+}
 
-        <Button
-          href="/auth/login"
-          className="shadow rounded-[5px] font-[20px] py-[15px] px-[20px] text-center text-[#f5f5f5] bg-[#75CE8E]"
-        >
-          Sign Up
-        </Button>
-
-        <Button className="shadow rounded-[5px] font-[20px] py-[15px] px-[20px] text-center text-neutral bg-white flex items-center justify-center gap-2">
-          <img src="../../assets/google-icon.png" alt="" className="w-[24px]" />
-          <span> Continue with Google</span>
-        </Button>
-      </div>
-    </PageLayout>
+export default function HomePage() {
+  const actions = [
+    {
+      title: "Pomodoro",
+      isActive: true,
+    },
+    {
+      title: "Short break",
+      isAvtive: false,
+    },
+    {
+      title: "Long break",
+      isActive: false,
+    },
+  ];
+  return (
+    <DashboardLayout headingSlot={HomePageHeader()} withBottomNav={true}>
+      <View className="mt-4">
+        <h2 className="text-[14px] mb-1 font-bold">Quick Focus</h2>
+        <Card className="bg-app px-12 py-6 rounded min-h-[300px]">
+          <ul className="flex justify-center items-center mb-6 text-[12px]">
+            {actions.map((action) => (
+              <li
+                className={
+                  action.isActive
+                    ? "bg-[#f5f5f5] text-[#05595B] px-2 py-1 "
+                    : "px-2 py-1 color-white text-[12px]"
+                }
+              >
+                {action.title}
+              </li>
+            ))}
+          </ul>
+          <View className="min-h-[200px] flex justify-center items-center bg-[rgba(245, 245, 245, .75)] border-2 my-4 rounded border-white"></View>
+          <Button className="bg-[#f7f7f7] flex justify-center items-center gap-2 w-full">
+            <PlayIcon className="w-6 h-6 text-app"></PlayIcon> Start
+          </Button>
+        </Card>
+      </View>
+    </DashboardLayout>
   );
 }
