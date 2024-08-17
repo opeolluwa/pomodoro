@@ -9,19 +9,19 @@ import React from "react";
 
 type OTPProps = GetProps<typeof Input.OTP>;
 
-export default function  ConfirmEmail() {
+export default function ConfirmPasswordPage() {
   const onChange: OTPProps["onChange"] = (text) => {
     console.log("onChange:", text);
   };
 
   const sharedProps: OTPProps = {
     onChange,
-    className:"rounded-lg hidden bg-red-500"
+    className: "rounded-lg hidden bg-red-500",
   };
   return (
     <PageLayout className="flex flex-col ">
       <div>
-        <Heading className="text-center text-[18px] font-bold">Sign In</Heading>
+        <Heading className="text-center text-[18px] font-bold">Reset Password</Heading>
         <div className="flex justify-center items-center mt-24">
           <img
             src="../../assets/confirm-password-illustration.png"
@@ -32,8 +32,7 @@ export default function  ConfirmEmail() {
       </div>
 
       <p className="leading-7 text-center p-[14px] py-4 my-10">
-        A message has been sent to your mail containing a four digit code, enter
-        the code below to confirm email.
+     Set new password
       </p>
       <div className="flex flex-col w-2/3  mx-auto justify-center items-center">
         <Input.OTP length={4} {...sharedProps} className="rounded-lg " />
@@ -46,10 +45,10 @@ export default function  ConfirmEmail() {
       </SmallText>
 
       <Button
-        href="/auth/account-verified"
+        href="/auth/set-new-password"
         className="shadow rounded-[5px] font-[20px] py-[15px] px-[20px] text-center text-neutral bg-[#f5f5f5]"
       >
-       Resend Code
+        Resend Code
       </Button>
     </PageLayout>
   );
