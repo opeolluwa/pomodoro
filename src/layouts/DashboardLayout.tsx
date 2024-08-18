@@ -23,7 +23,7 @@ export default function PageLayout({
 }: Props) {
   const heading = headingSlot ? headingSlot : headingText ? headingText : "";
   return (
-    <View className="relative">
+    <View className="relative min-h-screen">
       <View className={"py-6 px-6  bg-white " + headerStyles}>
         {backArrow ? <ArrowLeftIcon className="w-6 h-6" /> : ""}{" "}
         <Heading className=" p-0 m-0">
