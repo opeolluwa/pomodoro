@@ -39,10 +39,10 @@ export default function HomePage() {
   ];
   return (
     <DashboardLayout headingSlot={HomePageHeader()} withBottomNav={true}>
-      <View className="mt-4">
-        <h2 className="text-[14px] mb-1 font-bold">Quick Focus</h2>
-        <Card className="bg-app px-12 py-6 rounded min-h-[300px]">
-          <ul className="flex justify-center items-center mb-6 text-[12px]">
+      <View>
+        <h2 className="text-[14px] mb-2 font-bold text-gray-500">Quick Focus</h2>
+        <Card className="bg-app px-12 py-6 rounded-sm min-h-[300px]">
+          <ul className="flex justify-center items-center mb-6 text-[12px] text-white">
             {actions.map((action) => (
               <li
                 className={
@@ -55,8 +55,8 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
-          <View className="min-h-[200px] flex px-12 justify-center items-center bg-[rgba(245, 245, 245, .75)] border-2 my-4 rounded border-white"></View>
-          <Button className="bg-[#f7f7f7] flex justify-center items-center gap-2 w-full">
+          <View className="min-h-[200px] w-[220px] mx-auto flex px-12 justify-center items-center bg-[rgba(245, 245, 245, 1)] border-[1px] my-4 rounded-sm border-white"></View>
+          <Button className="bg-[#f7f7f7] flex justify-center items-center gap-2 w-4/5 mx-auto ">
             <PlayIcon className="w-6 h-6 text-app"></PlayIcon> Start
           </Button>
         </Card>
