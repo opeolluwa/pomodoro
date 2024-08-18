@@ -7,20 +7,9 @@ import DashboardLayout from "@/layouts/DashboardLayout";
 import { BellIcon } from "@heroicons/react/24/outline";
 import { PlayIcon } from "@heroicons/react/24/solid";
 import React from "react";
+import { HomePageHeader } from "./home/header";
 
-export function HomePageHeader(): React.JSX.Element {
-  return (
-    <View className="flex items-center justify-between p-0 m-0">
-      <View>
-        <SmallText className="font-normal -mb-1">Good afternoon</SmallText>
-        <Heading className="text-[16px]">Scarlet Anderson</Heading>
-      </View>
-      <Button href="/notification ">
-        <BellIcon className="w-6 h-6"></BellIcon>
-      </Button>
-    </View>
-  );
-}
+
 
 export default function HomePage() {
   const actions = [
@@ -38,7 +27,7 @@ export default function HomePage() {
     },
   ];
   return (
-    <DashboardLayout headingSlot={HomePageHeader()} withBottomNav={true}>
+    <DashboardLayout headingSlot={<HomePageHeader/>} withBottomNav={true}>
       <View>
         <h2 className="text-[14px] mb-2 font-bold text-gray-500">Quick Focus</h2>
         <Card className="bg-app px-12 py-6 rounded-sm min-h-[300px]">

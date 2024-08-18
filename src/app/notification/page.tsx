@@ -9,19 +9,9 @@ import { useState } from "react";
 import { notifications } from "./notifications";
 import NotificationCard from "@/components/Notification";
 import { time } from "console";
+import NotificationPageHeader from "./header";
 
-function NotificationPageHeader() {
-  return (
-    <>
-      <View className="flex items-center justify-between p-0 m-0">
-        <View>
-          <Heading className="text-[16px]">Notification</Heading>
-        </View>
-        <SmallText className="text-red-500">Clear all</SmallText>
-      </View>
-    </>
-  );
-}
+
 
 export default function NotificationPage() {
   const [notification, setNotification] = useState([]);
@@ -29,7 +19,7 @@ export default function NotificationPage() {
     return (
       <DashboardLayout
         withBottomNav={true}
-        headingSlot={NotificationPageHeader()}
+        headingSlot={<NotificationPageHeader/>}
       >
         <View>
           <Heading className="text-gray-600">No message !</Heading>
