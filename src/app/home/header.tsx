@@ -11,7 +11,7 @@ export function HomePageHeader(): React.JSX.Element {
         <SmallText className="font-normal -mb-1">Good afternoon</SmallText>
         <Heading className="text-[16px]">Scarlet Anderson</Heading>
       </View>
-      <Button href="/notification ">
+      <Button href="/notification  ">
         <BellIcon className="w-6 h-6"></BellIcon>
       </Button>
     </View>
