@@ -5,5 +5,5 @@ interface Props {
 }
 export default function PageLayout({ children, className }: Props) {
   
-  return <div className={"px-6 bg-white py-10 h-screen " +className}>{children}</div>;
+  return <div className={"px-6 bg-white py-10 min-h-screen " +className}>{children}</div>;
 }

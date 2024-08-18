@@ -23,14 +23,14 @@ export default function PageLayout({
 }: Props) {
   const heading = headingSlot ? headingSlot : headingText ? headingText : "";
   return (
-    <View className="relative">
+    <View className="relative min-h-screen">
       <View className={"py-6 px-6  bg-white " + headerStyles}>
         {backArrow ? <ArrowLeftIcon className="w-6 h-6" /> : ""}{" "}
         <Heading className=" p-0 m-0">
           {heading ? <span className="">{heading}</span> : ""}
         </Heading>
       </View>
-      <View className={"px-6 py-4 bg-[#f5f5f5] min-h-screen mb-4 " + className}>
+      <View className={"px-6 py-4 bg-[#f5f5f5] mb-4  min-h-full" + className}>
         {children}
       </View>
       <View className={withBottomNav ? "fixed bottom-0 w-full left-0" : "hidden"}>
