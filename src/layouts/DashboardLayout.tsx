@@ -1,6 +1,7 @@
 import Heading from "@/components/Heading";
 import BottomNav from "@/components/Nav/BottomNav";
 import View from "@/components/View";
+import { ArrowLongLeftIcon } from "@heroicons/react/24/outline";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import React from "react";
 interface Props {
@@ -24,8 +25,8 @@ export default function PageLayout({
   const heading = headingSlot ? headingSlot : headingText ? headingText : "";
   return (
     <View className="relative">
-      <View className={"py-6 px-6  bg-white " + headerStyles}>
-        {backArrow ? <ArrowLeftIcon className="w-6 h-6 inline " /> : ""}{" "}
+      <View className={"py-6 px-6  bg-white flex" + headerStyles}>
+        {backArrow ? <ArrowLongLeftIcon className="w-6 h-6 inline " /> : ""}{" "}
         <Heading className="p-0 m-0">
           {heading ? <span className="">{heading}</span> : ""}
         </Heading>

@@ -35,8 +35,8 @@ export default function NotificationPage() {
   return (
     <DashboardLayout
       withBottomNav={false}
-      backArrow={true}
-      headingSlot={NotificationPageHeader()}
+      backArrow={false}
+      headingSlot={<NotificationPageHeader/>}
       className="mb"
     >
       <View className="flex flex-col gap-y-4">
