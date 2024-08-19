@@ -13,6 +13,6 @@ export default function Button({ children, className, href }: Props) {
     );
   }
   return (
-    <button className={"rounded px-4 py-3 " + className}>{children}</button>
+    <button className={"rounded border-none outline-none px-4 py-3 " + className}>{children}</button>
   );
 }
