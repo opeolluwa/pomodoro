@@ -2,5 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.pomodoro" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
+        <!-- <color name="status_bar_color">#FFFFFFFF</color> -->
+        <!-- <color name="colorPrimaryDark">#FFFFFFFF</color> -->
     </style>
 </resources>
