@@ -1,14 +1,13 @@
 "use client";
 
 import Heading from "@/components/Heading";
-import SmallText from "@/components/SmallText";
+import NotificationCard from "@/components/Notification";
 import Text from "@/components/Text";
 import View from "@/components/View";
 import DashboardLayout from "@/layouts/DashboardLayout";
 import { useState } from "react";
-import { notifications } from "./notifications";
-import NotificationCard from "@/components/Notification";
 import NotificationPageHeader from "./header";
+import { notifications } from "./notifications";
 
 
 

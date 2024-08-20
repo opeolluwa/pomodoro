@@ -14,7 +14,7 @@ export default [
   {
     name: "Focus",
     defaultIcon: <CubeIcon className="w-6 h-6" />,
-    route: "/auth",
+    route: "/focus",
   },
 
   {
