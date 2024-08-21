@@ -1,14 +1,29 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
+pub struct Server {
+    port: Port,
+    ip_address: IpAddress,
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+struct Port(u64);
+impl Port {
+    pub fn new(n: u64) -> Self {
+        Port(n)
+    }
+}
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+impl Display for Port {}
+
+impl Default for Port {}
+
+struct IpAddress(u64, u64, u64, u64);
+
+impl IpAddress {
+    pub fn new(address: (u64, u64, u64, u64)) -> Self {
+        IpAddress(..address)
+    }
+}
+
+impl Server {
+    pub async fn run(&self) -> anyhow::Result {
+
     }
 }
