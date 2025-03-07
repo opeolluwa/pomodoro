@@ -25,3 +25,8 @@ develop platform:
     export ANDROID_HOME="$HOME/Library/Android/sdk"
     export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
     python3 scripts/develop.py {{platform}}
+
+
+run platform:
+    #!/usr/bin/env sh
+    python3 scripts/run.py {{platform}}
