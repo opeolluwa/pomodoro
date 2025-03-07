@@ -30,3 +30,8 @@ develop platform:
 run platform:
     #!/usr/bin/env sh
     python3 scripts/run.py {{platform}}
+
+
+logs platform:
+    #!/usr/bin/env sh
+        python3 scripts/logger.py {{platform}}
