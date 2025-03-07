@@ -1,0 +1,11 @@
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile.local
+    container_name: poseidon 
+    ports:
+      - '5000:5000'
+    environment:
+      - PORT=5000
+      
