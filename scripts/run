@@ -1,0 +1,15 @@
+#!/usr/bin/bash
+
+parse_platform() {
+    local platform=$1
+    platform=$(echo "$platform" | tr '[:upper:]' '[:lower:]' | xargs) # Convert to lowercase and strip spaces
+    if [[ "$platform" == "android" || "$platform" == "and" || "$platform" == "a" ]]; then
+        echo "android"
+    elif [[ "$platform" == "ios" || "$platform" == "i" ]]; then
+        echo "ios"
+    else
+        echo "Invalid platform: Use one of 'android' or 'ios'"
+        exit 1
+    fi
+}
+
