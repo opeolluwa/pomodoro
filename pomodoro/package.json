@@ -1,0 +1,17 @@
+{
+  "name": "pomodoro",
+  "version": "1.0.0",
+  "description": "This template should help get you started developing with Tauri and Leptos.",
+  "main": "index.js",
+  "scripts": {
+    "watch:styles": "npx @tailwindcss/cli -i ./styles/tailwind.css -o styles/app.css --watch --minify",
+    "tailwind": "@tailwindcss/cli"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.12",
+    "tailwindcss": "^4.0.12"
+  }
+}

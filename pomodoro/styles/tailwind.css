@@ -1,4 +1,6 @@
-.logo.leptos:hover {
+@import "tailwindcss";
+
+/* .logo.leptos:hover {
   filter: drop-shadow(0 0 2em #a82e20);
 }
 :root {
@@ -109,4 +111,4 @@ button {
   button:active {
     background-color: #0f0f0f69;
   }
-}
+} */
