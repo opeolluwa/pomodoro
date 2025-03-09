@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Function to parse the app platform
+parse_platform() {
+    local platform=$1
+    platform=$(echo "$platform" | tr '[:upper:]' '[:lower:]' | xargs)  # Convert to lowercase and strip spaces
+    if [[ "$platform" == "android" || "$platform" == "and" || "$platform" == "a" ]]; then
+        echo "android"
+    elif [[ "$platform" == "ios" || "$platform" == "i" ]]; then
+        echo "ios"
+    elif [[ "$platform" == "styles" ]]; then 
+        echo "styles"
+    else
+        echo "Invalid platform: Use one of 'android' or 'ios'"
+        exit 1
+    fi
+}
+
+# Parse the platform argument
+platform=$(parse_platform "$1")
+
+# Run command based on the platform
+if [[ "$platform" == "android" ]]; then
+    cargo tauri android dev
+elif [[ "$platform" == "ios" ]]; then
+    cargo tauri ios dev
+elif [[ "$platform" == "styles" ]]; then
+    ls
+    npx @tailwindcss/cli -i ./pomodoro/styles/tailwind.css -o ./pomodoro/styles/app.css --watch --minify
+else
+    echo "Unsupported platform"
+    exit 1
+fi

@@ -6,6 +6,7 @@ EXPORT_PATH := "packages"
 SUPPORTED_PLATFORM :="android ios"
 
 alias d := develop
+alias w:= develop 
 
 set export := true
 set dotenv-filename := "./.envrc"
@@ -24,7 +25,8 @@ develop platform:
     export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
     export ANDROID_HOME="$HOME/Library/Android/sdk"
     export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
-    python3 scripts/develop.py {{platform}}
+    export LEPTOS_TAILWIND_VERSION='v4.0.0'
+    sh scripts/develop {{platform}}
 
 
 run platform:
@@ -35,3 +37,7 @@ run platform:
 logs platform:
     #!/usr/bin/env sh
         python3 scripts/logger.py {{platform}}
+
+fmt: 
+    cd ./pomodoro leptosfmt . && cargo fmt && cargo group-imports --fix && cargo sort -w
+
