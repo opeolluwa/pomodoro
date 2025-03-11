@@ -1,8 +1,10 @@
+use crate::icons::bell::BellIconOutline;
+use js_bindgen::navigate::change_location_to;
 use leptos::prelude::view;
+use leptos::prelude::AddAnyAttr;
 use leptos::prelude::ClassAttribute;
 use leptos::prelude::ElementChild;
-
-use crate::icons::bell::BellIconOutline;
+use leptos::prelude::IntoAttribute;
 
 #[leptos::component]
 pub fn HomeScreenHeader() -> impl leptos::IntoView {
@@ -17,7 +19,7 @@ pub fn HomeScreenHeader() -> impl leptos::IntoView {
                     Scarlet Anderson
                 </h1>
             </div>
-            <BellIconOutline />
+            <BellIconOutline on:click=move |_| change_location_to("/notification") />
         </div>
     }
 }

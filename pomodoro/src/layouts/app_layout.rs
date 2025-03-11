@@ -23,7 +23,10 @@ where
     let nav_item_label_css_rule ="font-[12px] leading-[16px]";
 
     view! {
-        <header class="px-[24px] py-[17px] bg-white">{header}</header>
+        <header class="relative">
+            <nav class="px-[24px] py-[17px] bg-white fied top-10 bottom-20 left-0 w-full right-0">{header}
+            </nav>
+        </header>
         <main
             class=format!("bg-[#F5F5F5] py-[17px] overflow-y-scroll px-[24px] {}", class)
             style="position:relative"
@@ -34,7 +37,7 @@ where
 
             <button class=nav_item_css_rule>
                 <HomeIconActive />
-                 <span class=format!("text-app-green {}", nav_item_label_css_rule)>Home</span>
+                <span class=format!("text-app-green {}", nav_item_label_css_rule)>Home</span>
             </button>
 
             <button class=nav_item_css_rule>
