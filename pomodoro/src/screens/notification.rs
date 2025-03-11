@@ -1,8 +1,11 @@
 use crate::components::typography::heading::HeadingText;
 use crate::components::typography::paragraph::BaseText;
 use crate::{icons::arrow::ArrowBack, layouts::app_layout::AppLayout};
+use js_bindgen::prev_location;
+use leptos::prelude::AddAnyAttr;
 use leptos::prelude::ClassAttribute;
 use leptos::prelude::ElementChild;
+use leptos::prelude::IntoAttribute;
 use leptos::view;
 
 #[leptos::component]
@@ -10,7 +13,7 @@ pub fn NotificationScreen() -> impl leptos::IntoView {
     let header = view! {
         <div class="flex justify-between items-center">
             <h2 class="flex items-center gap-x-[10px]">
-                <ArrowBack />
+                <ArrowBack on:click= move |_| prev_location::go_to_prev_location() />
 
                 <HeadingText>Notification</HeadingText>
             </h2>

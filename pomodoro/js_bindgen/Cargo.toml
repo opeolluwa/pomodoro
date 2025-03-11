@@ -11,4 +11,5 @@ web-sys = { version = "0.3.76", features = [
     "Window",
     "Node",
     "HtmlElement",
+    "History",
 ] }
