@@ -7,6 +7,7 @@ edition = "2021"
 [dependencies]
 console_error_panic_hook = "0.1.7"
 js-sys = "0.3"
+js_bindgen = { version = "0.1.0", path = "js_bindgen" }
 leptos = { version = "0.7", features = ["csr"] }
 leptos_router = "0.7.7"
 serde = { version = "1", features = ["derive"] }
@@ -16,4 +17,4 @@ wasm-bindgen = "0.2"
 wasm-bindgen-futures = "0.4"
 
 [workspace]
-members = ["src-tauri"]
+members = [ "js_bindgen","src-tauri"]
