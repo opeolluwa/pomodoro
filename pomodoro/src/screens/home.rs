@@ -15,7 +15,7 @@ pub fn HomeScreen() -> impl leptos::IntoView {
 
     let timer_css_rule = "bg-[#F5F5F5] leading-[36px] py-[20px] px-[10px]rounded-[10px] w-[60px] h-[60px] flex flex-col justify-center items-center text-4xl rounded-[10px] font-semibold";
     view! {
-        <AppLayout header class="h-[90vh]">
+        <AppLayout header class="h-[90vh] overflow scroll">
             <h2 class="text-app-text leading-[14px] font-[600] mt-3">Quick Focus</h2>
             <div>
                 <div class="mt-2 flex flex-col relative p-5 gap-5 min-h-[380px] bg-[#75CE8E] rounded-md">
