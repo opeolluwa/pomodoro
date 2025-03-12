@@ -1,3 +1,4 @@
+use leptos::prelude::ClassAttribute;
 use leptos::prelude::CustomAttribute;
 use leptos::prelude::ElementChild;
 use leptos::view;
@@ -10,6 +11,7 @@ pub fn BellIconOutline() -> impl leptos::IntoView {
             height="24"
             viewBox="0 0 24 24"
             fill="none"
+            class="size-6"
             xmlns="http://www.w3.org/2000/svg"
         >
             <rect width="24" height="24" rx="8" fill="white" />

@@ -39,5 +39,8 @@ logs platform:
         python3 scripts/logger.py {{platform}}
 
 fmt: 
-    cd ./pomodoro leptosfmt . && cargo fmt && cargo group-imports --fix && cargo sort -w
+    leptosfmt .
+    cargo fmt --manifest-path=pomodoro/Cargo.toml
+    cargo group-imports --fix -- --manifest-path=pomodoro/Cargo.toml
+    cargo sort -w --  --manifest-path=pomodoro/Cargo.toml
 

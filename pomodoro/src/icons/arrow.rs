@@ -1,3 +1,4 @@
+use leptos::prelude::ClassAttribute;
 use leptos::prelude::CustomAttribute;
 use leptos::prelude::ElementChild;
 use leptos::view;
@@ -9,6 +10,7 @@ pub fn ArrowBack() -> impl leptos::IntoView {
             width="24"
             height="24"
             viewBox="0 0 24 24"
+            class="size-6"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
         >
