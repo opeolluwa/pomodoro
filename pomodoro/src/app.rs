@@ -5,7 +5,10 @@ use leptos_router::{
     path,
 };
 
-use crate::screens::{home::HomeScreen, notification::NotificationScreen};
+use crate::screens::{
+    analytics::AnalyticsScreen, focus::FocusScreen, home::HomeScreen,
+    notification::NotificationScreen, profile::ProfileScreen,
+};
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -14,6 +17,9 @@ pub fn App() -> impl IntoView {
             <Routes transition=true fallback=|| "not found ">
                 <Route path=path!("/") view=HomeScreen />
                 <Route path=path!("/notification") view=NotificationScreen />
+                <Route path=path!("/focus") view=FocusScreen />
+                <Route path=path!("/profile") view=ProfileScreen />
+                <Route path=path!("/analytics") view=AnalyticsScreen />
 
             </Routes>
         </Router>

@@ -13,8 +13,7 @@ pub fn NotificationScreen() -> impl leptos::IntoView {
     let header = view! {
         <div class="flex justify-between items-center">
             <h2 class="flex items-center gap-x-[10px]">
-                <ArrowBack on:click= move |_| prev_location::go_to_prev_location() />
-
+                <ArrowBack on:click=move |_| prev_location::go_to_prev_location() />
                 <HeadingText>Notification</HeadingText>
             </h2>
             <button class="text-[#E06767] font-[14px]">Clear all</button>
@@ -22,7 +21,7 @@ pub fn NotificationScreen() -> impl leptos::IntoView {
     };
 
     view! {
-        <AppLayout header>
+        <AppLayout header active_route="notofication">
             <div class="flex flex-col items-center justify-center h-[90vh] ">
                 <HeadingText>"No message!"</HeadingText>
                 <BaseText class="text-center">
