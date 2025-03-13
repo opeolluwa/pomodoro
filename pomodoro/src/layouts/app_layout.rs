@@ -27,7 +27,7 @@ where
             class=format!("bg-[#F5F5F5] py-[17px] pb-[10vh] overflow-y-scroll px-[24px] {}", class)
             style="position:relative"
         >
- 
+
             {children()}
         </main>
         <nav class="px-[24px]  fixed w-full left-0 right-0 bottom-0 bg-[#FFFFFF] px-[20px] pb-[20px] flex items-center justify-between pt-2">
