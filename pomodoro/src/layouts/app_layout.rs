@@ -19,22 +19,22 @@ where
     let (is_active, _) = signal(active_route);
     view! {
         <header class="relative">
-            <nav class="px-[24px] py-[17px] bg-white fied top-10 bottom-20 left-0 w-full right-0">
+            <nav class="px-[24px] py-[17px] bg-white top-10 bottom-20 left-0 w-full right-0 ">
                 {header}
             </nav>
         </header>
         <main
-            class=format!("bg-[#F5F5F5] py-[17px] overflow-y-scroll px-[24px] {}", class)
+            class=format!("bg-[#F5F5F5] py-[17px] pb-[10vh] overflow-y-scroll px-[24px] {}", class)
             style="position:relative"
         >
-
+ 
             {children()}
         </main>
         <nav class="px-[24px]  fixed w-full left-0 right-0 bottom-0 bg-[#FFFFFF] px-[20px] pb-[20px] flex items-center justify-between pt-2">
 
             // home
             <NavItem
-                                    is_active= is_active.get() == active_route
+                is_active=is_active.get() == active_route
                 label="Home"
                 active_icon=HomeIconActive()
                 inactive_icon=HomeIconInActive()
@@ -42,7 +42,7 @@ where
             />
 
             <NavItem
-                is_active= is_active.get() == active_route
+                is_active=is_active.get() == active_route
                 label="Focus"
                 active_icon=FocusIconActive()
                 inactive_icon=FocusIconInactive()
@@ -50,7 +50,7 @@ where
             />
 
             <NavItem
-                         is_active= is_active.get() == active_route
+                is_active=is_active.get() == active_route
                 label="Analytics"
                 active_icon=AnalyticsIconActive()
                 inactive_icon=AnalyticsIconInactive()
@@ -58,7 +58,7 @@ where
             />
 
             <NavItem
-                is_active= is_active.get() == active_route
+                is_active=is_active.get() == active_route
                 label="profile"
                 active_icon=ProfileIconActive()
                 inactive_icon=ProfileIconInactive()
