@@ -94,7 +94,7 @@ where
             class=nav_item_css_rule
             href=path
             class=(
-                "border-t-2 border-t-solid border-t-2 border-t-app-green",
+                ["border-t-2", "border-t-solid", "border-t-2", "border-t-app-green"],
                 move || is_active == true,
             )
         >
