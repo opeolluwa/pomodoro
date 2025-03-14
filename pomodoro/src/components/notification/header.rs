@@ -1,11 +1,13 @@
-use crate::components::typography::heading::HeadingText;
-use crate::icons::arrow::ArrowBack;
-use js_bindgen::navigate::change_location_to;
+use leptos::prelude::AddAnyAttr;
 use leptos::prelude::ClassAttribute;
 use leptos::prelude::ElementChild;
-use leptos::view;
-use leptos::prelude::AddAnyAttr;
 use leptos::prelude::IntoAttribute;
+use leptos::view;
+
+use js_bindgen::navigate::change_location_to;
+
+use crate::components::typography::heading::HeadingText;
+use crate::icons::arrow::ArrowBack;
 
 #[leptos::component]
 pub fn NotificationScreenHeader() -> impl leptos::IntoView {

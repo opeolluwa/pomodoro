@@ -1,6 +1,7 @@
+use leptos::view;
+
 use crate::components::typography::heading::HeadingText;
 use crate::layouts::app_layout::AppLayout;
-use leptos::view;
 
 #[leptos::component]
 pub fn FocusScreen() -> impl leptos::IntoView {

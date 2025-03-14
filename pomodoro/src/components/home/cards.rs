@@ -1,6 +1,6 @@
-use leptos::view;
-use leptos::prelude::ElementChild;
 use leptos::prelude::ClassAttribute;
+use leptos::prelude::ElementChild;
+use leptos::view;
 
 use crate::components::cards::generic_card::GenericCard;
 use crate::components::typography::heading::HeadingText;
@@ -43,18 +43,15 @@ pub fn TimerCard() -> impl leptos::IntoView {
     }
 }
 
-
-
-
 #[leptos::component]
 pub fn ActivityCard() -> impl leptos::IntoView {
-  view! {
-      <GenericCard class="mt-[20px] min-h-[380px] shadow-sm">
+    view! {
+        <GenericCard class="mt-[20px] min-h-[380px] shadow-sm">
 
-          <HeadingText>Activity check</HeadingText>
-          // TODO: compute the message and render activities if any
-          <BaseText class="text-left">No recent activity</BaseText>
+            <HeadingText>Activity check</HeadingText>
+            // TODO: compute the message and render activities if any
+            <BaseText class="text-left">No recent activity</BaseText>
 
-      </GenericCard>
-  }
+        </GenericCard>
+    }
 }

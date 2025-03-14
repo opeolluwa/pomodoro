@@ -1,5 +1,3 @@
-use crate::components::cards::generic_card::GenericCard;
-use crate::components::typography::heading::HeadingText;
 use leptos::prelude::ClassAttribute;
 use leptos::prelude::ElementChild;
 use leptos::view;
@@ -7,6 +5,9 @@ use reactive_stores::Patch;
 use reactive_stores_macro::Store;
 use serde::Deserialize;
 use serde::Serialize;
+
+use crate::components::cards::generic_card::GenericCard;
+use crate::components::typography::heading::HeadingText;
 
 #[derive(Clone, Store, Debug, Serialize, Deserialize, Patch)]
 pub struct NotificationOptions {
@@ -30,7 +31,6 @@ pub fn NotificationCard(
     #[prop()] content: String,
     #[prop()] unread: bool,
     #[prop(optional)] class: &'static str,
-
 ) -> impl leptos::IntoView {
     view! {
         <GenericCard class=class>

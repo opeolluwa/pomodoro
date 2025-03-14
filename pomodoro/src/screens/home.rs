@@ -1,8 +1,9 @@
+use leptos::prelude::ElementChild;
+use leptos::{prelude::ClassAttribute, view};
+
 use crate::components::home::cards::{ActivityCard, TimerCard};
 use crate::components::home::header::HomeScreenHeader;
 use crate::layouts::app_layout::AppLayout;
-use leptos::prelude::ElementChild;
-use leptos::{prelude::ClassAttribute, view};
 
 #[leptos::component]
 pub fn HomeScreen() -> impl leptos::IntoView {
