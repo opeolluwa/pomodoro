@@ -1,10 +1,12 @@
-use crate::icons::bell::BellIconOutline;
-use js_bindgen::navigate::change_location_to;
 use leptos::prelude::view;
 use leptos::prelude::AddAnyAttr;
 use leptos::prelude::ClassAttribute;
 use leptos::prelude::ElementChild;
 use leptos::prelude::IntoAttribute;
+
+use js_bindgen::navigate::change_location_to;
+
+use crate::icons::bell::BellIconOutline;
 
 #[leptos::component]
 pub fn HomeScreenHeader() -> impl leptos::IntoView {
