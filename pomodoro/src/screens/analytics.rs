@@ -7,7 +7,7 @@ pub fn AnalyticsScreen() -> impl leptos::IntoView {
     let header = view! { <HeadingText>Analytics</HeadingText> };
 
     view! {
-        <AppLayout header class="h-[90vh]" active_route="analytics">
+        <AppLayout header class="h-[90vh] overflow scroll " active_route="analytics">
 
             ff
         </AppLayout>

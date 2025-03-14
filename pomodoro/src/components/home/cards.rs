@@ -49,12 +49,11 @@ pub fn TimerCard() -> impl leptos::IntoView {
 #[leptos::component]
 pub fn ActivityCard() -> impl leptos::IntoView {
   view! {
-    <GenericCard class="mt-[20px] min-h-[380px] shadow-sm">
+      <GenericCard class="mt-[20px] min-h-[380px] shadow-sm">
 
-
-      <HeadingText>Activity check</HeadingText>
-      // TODO: compute the message and render activities if any
-      <BaseText class="text-left">No recent activity</BaseText>
+          <HeadingText>Activity check</HeadingText>
+          // TODO: compute the message and render activities if any
+          <BaseText class="text-left">No recent activity</BaseText>
 
       </GenericCard>
   }

@@ -7,7 +7,7 @@ pub fn ProfileScreen() -> impl leptos::IntoView {
     let header = view! { <HeadingText>Profile</HeadingText> };
 
     view! {
-        <AppLayout header class="h-[90vh]" active_route="profile">
+        <AppLayout header class="h-[90vh] overflow scroll " active_route="profile">
 
             ff
         </AppLayout>
