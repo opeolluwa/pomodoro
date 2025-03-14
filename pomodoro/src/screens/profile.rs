@@ -6,18 +6,19 @@ use leptos::prelude::ElementChild;
 use leptos::prelude::RwSignal;
 use leptos::prelude::Set;
 use leptos::view;
+use thaw::Button;
 use thaw::Flex;
 use thaw::FlexJustify;
-use thaw::Switch;
-use thaw::Button;
 use thaw::Select;
+use thaw::Switch;
 
 #[leptos::component]
 pub fn ProfileScreen() -> impl leptos::IntoView {
     let header = view! { <HeadingText>Profile</HeadingText> };
     let input_box_css_rule = "border border-gray-200 border-2 rounded-lg w-16 h-10 placeholder:text-center placeholder:text-grap-400";
-    let input_box_wrapper_css_rule ="flex flex-col justify-center items-center";
+    let input_box_wrapper_css_rule = "flex flex-col justify-center items-center";
     let value = RwSignal::new("Red".to_string());
+    let section_title_css_rule = "text-[#525772] leading-[16px] text-[14px] block uppercase small";
     view! {
         <AppLayout header class="h-[90vh] overflow scroll " active_route="profile">
 
@@ -30,7 +31,7 @@ pub fn ProfileScreen() -> impl leptos::IntoView {
 
             <HeadingText>Settings</HeadingText>
             <GenericCard class="my-2 shadow-sm">
-                <span class="block">TIMER</span>
+                <span class=section_title_css_rule>TIMER</span>
                 <small class="block">In minutes</small>
                 <div class="bg-[#F7F7F7] py-[20px] flex justify-evenly mb-6 rounded ">
                     <span class=input_box_wrapper_css_rule>
@@ -45,7 +46,6 @@ pub fn ProfileScreen() -> impl leptos::IntoView {
                     <span class=input_box_wrapper_css_rule>
                         <label>"Long break"</label>
                         <input placeholder="0" class=input_box_css_rule />
-
                     </span>
                 </div>
 
@@ -69,7 +69,7 @@ pub fn ProfileScreen() -> impl leptos::IntoView {
             </GenericCard>
 
             <GenericCard class="my-2 shadow-sm">
-                <span class="block">Sound</span>
+                <span class=section_title_css_rule>Sound</span>
 
                 <Flex justify=FlexJustify::SpaceBetween class="my-3">
                     <span>Alarm sound</span>
@@ -78,7 +78,6 @@ pub fn ProfileScreen() -> impl leptos::IntoView {
                         <option>"Green"</option>
                         <option>"Blue"</option>
                     </Select>
-                    <Button on_click=move |_| value.set("Blue".to_string())>"Select Blue"</Button>
                 </Flex>
 
                 <Flex justify=FlexJustify::SpaceBetween class="my-3">
@@ -88,7 +87,7 @@ pub fn ProfileScreen() -> impl leptos::IntoView {
             </GenericCard>
 
             <GenericCard class="my-2 shadow-sm">
-                <span class="block">NOTIFICATION</span>
+                <span class=section_title_css_rule>NOTIFICATION</span>
 
                 <Flex justify=FlexJustify::SpaceBetween class="my-3">
                     <span>Reminder</span>
@@ -102,7 +101,7 @@ pub fn ProfileScreen() -> impl leptos::IntoView {
             </GenericCard>
 
             <GenericCard class="my-2 shadow-sm">
-                <span class="block">SYNC</span>
+                <span class=section_title_css_rule>SYNC</span>
                 <Flex justify=FlexJustify::SpaceBetween class="my-3">
                     <span>Sync with Google calendar</span>
                     <Switch class="rounded-full border-none" checked=false />
