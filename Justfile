@@ -7,6 +7,8 @@ SUPPORTED_PLATFORM :="android ios"
 
 alias d := develop
 alias w:= develop 
+alias b:= build 
+
 
 set export := true
 set dotenv-filename := "./.envrc"
@@ -16,9 +18,7 @@ set ignore-comments := true
 default: 
     @just --list --list-heading $'Available commands\n'
 
-prepare:
-      python3 -m venv ./scripts/venv
-      source ./scripts/venv/bin/activate
+
 
 develop platform:
     #!/usr/bin/env sh
@@ -28,6 +28,13 @@ develop platform:
     export LEPTOS_TAILWIND_VERSION='v4.0.0'
     sh scripts/develop {{platform}}
 
+build platform:
+    #!/usr/bin/env sh
+    export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+    export ANDROID_HOME="$HOME/Library/Android/sdk"
+    export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
+    export LEPTOS_TAILWIND_VERSION='v4.0.0'
+    sh scripts/build {{platform}}
 
 run platform:
     #!/usr/bin/env sh

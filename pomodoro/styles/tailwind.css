@@ -2,11 +2,18 @@
 
 @theme {
   --color-app-text: #525772;
-  --color-app-green:#75CE8E;
+  --color-app-green: #75CE8E;
 }
 
 
 
- html {
-   scroll-behavior: smooth;
- }
+html {
+  scroll-behavior: smooth !important;
+}
+
+
+main,
+header,
+footer {
+  overflow-x: hidden !important;
+}
