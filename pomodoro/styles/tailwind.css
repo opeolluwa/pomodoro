@@ -4,3 +4,9 @@
   --color-app-text: #525772;
   --color-app-green:#75CE8E;
 }
+
+
+
+ html {
+   scroll-behavior: smooth;
+ }

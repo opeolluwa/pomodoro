@@ -12,6 +12,8 @@ pub fn AppLayout<F>(
     header: F,
     #[prop(optional)] class: &'static str,
     #[prop(optional)] active_route: &'static str,
+    #[prop(optional)] hide_dock: bool,
+
 ) -> impl leptos::IntoView
 where
     F: IntoView,
@@ -30,7 +32,7 @@ where
 
             {children()}
         </main>
-        <nav class="px-[24px]  fixed w-full left-0 right-0 bottom-0 bg-[#FFFFFF] px-[20px] pb-[20px] flex items-center justify-between pt-2">
+        <nav class="px-[24px]  fixed w-full left-0 right-0 bottom-0 bg-[#FFFFFF] px-[20px] pb-[20px] flex items-center justify-between pt-2" class=("hidden", move || hide_dock ==true)>
 
             // home
             <NavItem
