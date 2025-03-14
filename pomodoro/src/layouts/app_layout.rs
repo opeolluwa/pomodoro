@@ -84,7 +84,7 @@ where
     I: IntoView,
 {
     let nav_item_css_rule =
-        "flex flex-col items-center justify-start gap-y-[6.5px] hover:text-app-green pt-2";
+        "flex flex-col items-center justify-start gap-y-[6.5px] hover:text-app-green pt-1";
     let nav_item_label_css_rule = "font-[12px] leading-[16px]";
     let active = move || is_active == true;
     let in_active = move || is_active == false;
@@ -94,7 +94,7 @@ where
             class=nav_item_css_rule
             href=path
             class=(
-                ["border-t-2", "border-t-solid", "border-t-2", "border-t-app-green"],
+                ["border-t-2", "border-t-solid", "border-t-2", "border-t-app-green/50"],
                 move || is_active == true,
             )
         >
