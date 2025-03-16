@@ -2,7 +2,7 @@ use crate::icons::analytics::{AnalyticsIconActive, AnalyticsIconInactive};
 use crate::icons::focus::{FocusIconActive, FocusIconInactive};
 use crate::icons::home::{HomeIconActive, HomeIconInActive};
 use crate::icons::profile::{ProfileIconActive, ProfileIconInactive};
-use leptos::prelude::{ ClassAttribute, ElementChild, StyleAttribute};
+use leptos::prelude::{ClassAttribute, ElementChild, StyleAttribute};
 use leptos::IntoView;
 use leptos::{prelude::Children, view};
 

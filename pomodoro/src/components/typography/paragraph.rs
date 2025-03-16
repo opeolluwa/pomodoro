@@ -8,5 +8,5 @@ pub fn BaseText(
     children: Children,
     #[prop(optional)] class: &'static str,
 ) -> impl leptos::IntoView {
-    view! { <div class=format!("text-[#B2B6CB] leading-[30px]  {}", class)>{children()}</div> }
+    view! { <div class=format!("text-[#B2B6CB] leading-[25px]  {}", class)>{children()}</div> }
 }
