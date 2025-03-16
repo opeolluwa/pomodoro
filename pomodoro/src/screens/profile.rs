@@ -1,36 +1,35 @@
 use crate::components::cards::generic_card::GenericCard;
+use crate::components::forms::switch::Switch;
+use crate::components::profile::typography::SectionTitle;
 use crate::components::typography::heading::HeadingText;
 use crate::layouts::app_layout::AppLayout;
 use leptos::prelude::ClassAttribute;
 use leptos::prelude::ElementChild;
 use leptos::prelude::RwSignal;
-use leptos::prelude::Set;
 use leptos::view;
-use thaw::Button;
 use thaw::Flex;
 use thaw::FlexJustify;
 use thaw::Select;
-use thaw::Switch;
 
 #[leptos::component]
 pub fn ProfileScreen() -> impl leptos::IntoView {
     let header = view! { <HeadingText>Profile</HeadingText> };
-    let input_box_css_rule = "border border-gray-200 border-2 rounded-lg w-16 h-10 placeholder:text-center placeholder:text-grap-400";
+    let input_box_css_rule = "border border-gray-200 border-2 rounded-lg w-16 h-10 placeholder:text-center placeholder:text-grap-400 outline-none text-center";
     let input_box_wrapper_css_rule = "flex flex-col justify-center items-center";
     let value = RwSignal::new("Red".to_string());
     let section_title_css_rule = "text-[#525772] leading-[16px] text-[14px] block uppercase small";
     view! {
-        <AppLayout header class="h-[90vh] overflow scroll " active_route="profile">
+        <AppLayout header class="h-[90vh] overflow scroll" active_route="profile">
 
             // TODO: only show if account exists
-            <HeadingText>User Information</HeadingText>
+            <SectionTitle>User Information</SectionTitle>
             <GenericCard class="my-2 shadow-sm">
                 <p>Jane doe</p>
                 <p>example@mailer.com</p>
             </GenericCard>
 
-            <HeadingText>Settings</HeadingText>
-            <GenericCard class="my-2 shadow-sm">
+            <SectionTitle>Settings</SectionTitle>
+            <GenericCard class="my-2 shadow-sm text-[#0D1C36]">
                 <span class=section_title_css_rule>TIMER</span>
                 <small class="block">In minutes</small>
                 <div class="bg-[#F7F7F7] py-[20px] flex justify-evenly mb-6 rounded ">
@@ -39,7 +38,7 @@ pub fn ProfileScreen() -> impl leptos::IntoView {
                         <input placeholder="0" class=input_box_css_rule />
                     </span>
                     <span class=input_box_wrapper_css_rule>
-                        <label>"Short break"</label>
+                        <label class="text-[#0D1C36]">"Short break"</label>
                         <input placeholder="0" class=input_box_css_rule />
 
                     </span>
@@ -73,7 +72,7 @@ pub fn ProfileScreen() -> impl leptos::IntoView {
 
                 <Flex justify=FlexJustify::SpaceBetween class="my-3">
                     <span>Alarm sound</span>
-                    <Select value>
+                    <Select value class="bg-gray-200 rounded px-4">
                         <option>"Red"</option>
                         <option>"Green"</option>
                         <option>"Blue"</option>
@@ -81,7 +80,7 @@ pub fn ProfileScreen() -> impl leptos::IntoView {
                 </Flex>
 
                 <Flex justify=FlexJustify::SpaceBetween class="my-3">
-                    <span>Auto start pomodoro</span>
+                    <span>Tick sound</span>
                     <Switch class="rounded-full border-none" checked=false />
                 </Flex>
             </GenericCard>
