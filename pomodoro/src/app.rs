@@ -4,6 +4,7 @@ use leptos_router::{
     components::{Route, Router, Routes},
     path,
 };
+use thaw::ConfigProvider;
 
 use crate::screens::{
     analytics::AnalyticsScreen, focus::FocusScreen, home::HomeScreen,
@@ -13,6 +14,7 @@ use crate::screens::{
 #[component]
 pub fn App() -> impl IntoView {
     view! {
+        <ConfigProvider>
         <Router>
             <Routes transition=true fallback=|| "not found ">
                 <Route path=path!("/") view=HomeScreen />
@@ -23,5 +25,6 @@ pub fn App() -> impl IntoView {
 
             </Routes>
         </Router>
+        </ConfigProvider>
     }
 }

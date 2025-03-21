@@ -26,7 +26,6 @@ pub fn NotificationScreen() -> impl leptos::IntoView {
         content: "Hello there, what have you been up to lately? We miss you on pomodore. Avoid distractions and focused today!".to_string(),
         unread: true, key:1
     }, NotificationOptions { heading: "notification title".to_string(), time: "2d ago".to_string(), content: "Hello there, what have you been up to lately? We miss you on pomodore. Avoid distractions and focused today!".to_string(), unread: false, key :2 },
-    
     NotificationOptions { heading: "notification title".to_string(), time: "2d ago".to_string(), content: "Hello there, what have you been up to lately? We miss you on pomodore. Avoid distractions and focused today!".to_string(), unread: false, key :3 },
     NotificationOptions { heading: "notification title".to_string(), time: "2d ago".to_string(), content: "Hello there, what have you been up to lately? We miss you on pomodore. Avoid distractions and focused today!".to_string(), unread: false, key :4 }
     ];
@@ -36,7 +35,7 @@ pub fn NotificationScreen() -> impl leptos::IntoView {
     });
 
     view! {
-        <AppLayout hide_dock header active_route="notification" class="h-[90vh] overflow scroll ">
+        <AppLayout hide_dock header active_route="notification" class="h-[90vh] overflow-scroll ">
             <div
                 class="flex flex-col"
                 class=(
