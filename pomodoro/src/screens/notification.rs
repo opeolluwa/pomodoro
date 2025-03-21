@@ -35,7 +35,7 @@ pub fn NotificationScreen() -> impl leptos::IntoView {
     });
 
     view! {
-        <AppLayout hide_dock header active_route="notification" class="h-[90vh] overflow scroll ">
+        <AppLayout hide_dock header active_route="notification" class="h-[90vh] overflow-scroll ">
             <div
                 class="flex flex-col"
                 class=(
