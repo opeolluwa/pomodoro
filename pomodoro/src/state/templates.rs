@@ -1,5 +1,3 @@
-use reactive_stores::Patch;
-use reactive_stores_macro::Store;
 use serde::Deserialize;
 use serde::Serialize;
 
@@ -23,23 +21,23 @@ impl ToString for FocusTemplateKind {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, Default, Clone, Patch)]
+#[derive(Debug, Serialize, Deserialize, Default, Clone)]
 pub struct FocusTemplateTimerConfig {
     pub count: u8,
     pub short_break: u8,
     pub long_break: u8,
 }
 
-#[derive(Clone, Store, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct FocusTemplateCardOptions {
     pub kind: FocusTemplateKind,
     pub title: String,
     pub description: String,
-    // pub timer: FocusTemplateTimerConfig,
+    pub timer: FocusTemplateTimerConfig,
     pub key: u8,
 }
 
-#[derive(Clone, Store, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct StoredTemplates {
     pub templates: Vec<FocusTemplateCardOptions>,
 }
