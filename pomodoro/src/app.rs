@@ -15,16 +15,16 @@ use crate::screens::{
 pub fn App() -> impl IntoView {
     view! {
         <ConfigProvider>
-        <Router>
-            <Routes transition=true fallback=|| "not found ">
-                <Route path=path!("/") view=HomeScreen />
-                <Route path=path!("/notification") view=NotificationScreen />
-                <Route path=path!("/focus") view=FocusScreen />
-                <Route path=path!("/profile") view=ProfileScreen />
-                <Route path=path!("/analytics") view=AnalyticsScreen />
+            <Router>
+                <Routes transition=true fallback=|| "not found ">
+                    <Route path=path!("/") view=HomeScreen />
+                    <Route path=path!("/notification") view=NotificationScreen />
+                    <Route path=path!("/focus") view=FocusScreen />
+                    <Route path=path!("/profile") view=ProfileScreen />
+                    <Route path=path!("/analytics") view=AnalyticsScreen />
 
-            </Routes>
-        </Router>
+                </Routes>
+            </Router>
         </ConfigProvider>
     }
 }
