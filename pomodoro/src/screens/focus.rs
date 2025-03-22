@@ -1,21 +1,30 @@
 use crate::components::typography::heading::HeadingText;
+use crate::components::typography::paragraph::BaseText;
 use crate::icons::focus::FocusScreenEmptyStateIcon;
 use crate::layouts::app_layout::AppLayout;
 use leptos::prelude::*;
 use leptos::view;
 use thaw::DrawerBody;
+use thaw::DrawerHeader;
 use thaw::DrawerPosition;
+use thaw::DrawerSize;
 use thaw::OverlayDrawer;
 
 #[leptos::component]
 pub fn FocusScreen() -> impl leptos::IntoView {
     let header = view! { <HeadingText>Focus</HeadingText> };
     let open = RwSignal::new(false);
+    let input_box_css_rule = "border border-gray-200 border-2 rounded-lg w-16 h-10 placeholder:text-center placeholder:text-grap-400 outline-none text-center";
+    let input_box_wrapper_css_rule = "flex flex-col justify-center items-center";
 
+    let categories = vec!["fitness", "work", "study", "personal"];
     view! {
         <AppLayout header class="h-[90vh] bg-white overflow-scroll " active_route="focus">
 
-            <button class="text-white justify-center bg-app-green w-full flex items-center rounded px-4 py-3 gap-x-2 " on:click = move |_| open.set(true)>
+            <button
+                class="text-white justify-center bg-app-green w-full flex items-center rounded px-4 py-3 gap-x-2 "
+                on:click=move |_| open.set(true)
+            >
                 <svg
                     width="25"
                     height="24"
@@ -38,12 +47,108 @@ pub fn FocusScreen() -> impl leptos::IntoView {
                 <FocusScreenEmptyStateIcon />
             </div>
 
-           <OverlayDrawer open position=DrawerPosition::Bottom>
+            <OverlayDrawer
+                open
+                position=DrawerPosition::Bottom
+                size=DrawerSize::Medium
+                class="rounded-t-lg"
+            >
+                <DrawerHeader>
+                    <HeadingText>Create a template</HeadingText>
+                </DrawerHeader>
+                <DrawerBody class="h-[90vh] overflow-scroll">
 
-        <DrawerBody>
-          <p>"Drawer content"</p>
-        </DrawerBody>
-    </OverlayDrawer>
+                    <form class="flex flex-col gap-y-6 mt-6">
+
+                        <div>
+                            <label
+                                for="message"
+                                class="block mb-2 text-sm font-medium  text-[#525772]"
+                            >
+                                "What do you want to do?"
+                            </label>
+
+                            <input
+                                placeholder="e.g, Assignment, web design..."
+                                class="rounded bg-[#F7F7F7] outline-none border-none rounded placeholder:text-[#B2B6CB] w-full  px-4 py-3"
+                            />
+                        </div>
+
+                        <div>
+
+                            <label
+                                for="message"
+                                class="block mb-2 text-sm font-medium text-[#525772"
+                            >
+                                Description
+                            </label>
+                            <textarea
+                                id="message"
+                                rows="4"
+                                class="block p-2.5 w-full text-sm text-gray-900 bg-[#f7f7f7] w-full border-none rounded-lg  focus:ring-app-green focus:border-app-green"
+                                placeholder="Description"
+                            ></textarea>
+
+                        </div>
+
+                        <div>
+                            <label
+                                for="message"
+                                class="block mb-2 text-sm font-medium  text-[#525772]"
+                            >
+                                Category
+                            </label>
+                            <div class="flex items-center justify-between ">
+
+                                {categories
+                                    .into_iter()
+                                    .map(|category| {
+                                        view! {
+                                            <button class="rounded hover:bg-app-green bg-[#f7f7f7] hover:text-white text-[#525772] py-2 px-3 capitalize">
+                                                {category}
+                                            </button>
+                                        }
+                                    })
+                                    .collect_view()}
+                            </div>
+
+                        </div>
+                        <div>
+                            <label
+                                for="message"
+                                class="block mb-2 text-sm font-medium  text-[#525772]"
+                            >
+                                "Timer config"
+                            </label>
+
+                            <div class="bg-[#F7F7F7] py-[20px] flex justify-evenly rounded ">
+
+                                <span class=input_box_wrapper_css_rule>
+                                    <label>Counts</label>
+                                    <input placeholder="0" class=input_box_css_rule />
+                                </span>
+                                <span class=input_box_wrapper_css_rule>
+                                    <label class="text-[#0D1C36]">"Short break"</label>
+                                    <input placeholder="0" class=input_box_css_rule />
+
+                                </span>
+                                <span class=input_box_wrapper_css_rule>
+                                    <label>"Long break"</label>
+                                    <input placeholder="0" class=input_box_css_rule />
+                                </span>
+                            </div>
+
+                        </div>
+                        <button
+                            class="text-white justify-center bg-app-green w-full flex items-center rounded px-4 py-3 gap-x-2 text-[20px] font-medium"
+                            on:click=move |_| open.set(false)
+                        >
+
+                            Save
+                        </button>
+                    </form>
+                </DrawerBody>
+            </OverlayDrawer>
         </AppLayout>
     }
 }
