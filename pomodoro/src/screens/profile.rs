@@ -23,13 +23,13 @@ pub fn ProfileScreen() -> impl leptos::IntoView {
 
             // TODO: only show if account exists
             <SectionTitle>User Information</SectionTitle>
-            <GenericCard class="my-2 shadow-sm">
+            <GenericCard class="my-2">
                 <p>Jane doe</p>
                 <p>example@mailer.com</p>
             </GenericCard>
 
             <SectionTitle>Settings</SectionTitle>
-            <GenericCard class="my-2 shadow-sm text-[#0D1C36]">
+            <GenericCard class="my-2 text-[#0D1C36]">
                 <span class=section_title_css_rule>TIMER</span>
                 <small class="block">In minutes</small>
                 <div class="bg-[#F7F7F7] py-[20px] flex justify-evenly mb-6 rounded ">
@@ -67,7 +67,7 @@ pub fn ProfileScreen() -> impl leptos::IntoView {
                 </Flex>
             </GenericCard>
 
-            <GenericCard class="my-2 shadow-sm">
+            <GenericCard class="my-2">
                 <span class=section_title_css_rule>Sound</span>
 
                 <Flex justify=FlexJustify::SpaceBetween class="my-3">
@@ -85,7 +85,7 @@ pub fn ProfileScreen() -> impl leptos::IntoView {
                 </Flex>
             </GenericCard>
 
-            <GenericCard class="my-2 shadow-sm">
+            <GenericCard class="my-2">
                 <span class=section_title_css_rule>NOTIFICATION</span>
 
                 <Flex justify=FlexJustify::SpaceBetween class="my-3">
@@ -99,7 +99,7 @@ pub fn ProfileScreen() -> impl leptos::IntoView {
                 </Flex>
             </GenericCard>
 
-            <GenericCard class="my-2 shadow-sm">
+            <GenericCard class="my-2">
                 <span class=section_title_css_rule>SYNC</span>
                 <Flex justify=FlexJustify::SpaceBetween class="my-3">
                     <span>Sync with Google calendar</span>
