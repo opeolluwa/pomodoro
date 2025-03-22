@@ -1,9 +1,14 @@
+use crate::components::focus::cards::FocusCardTemplate;
 use crate::components::typography::heading::HeadingText;
-use crate::components::typography::paragraph::BaseText;
 use crate::icons::focus::FocusScreenEmptyStateIcon;
 use crate::layouts::app_layout::AppLayout;
+use crate::state::templates::FocusTemplateCardOptions;
+use crate::state::templates::FocusTemplateKind;
+use crate::state::templates::StoredTemplates;
+use crate::state::templates::StoredTemplatesStoreFields;
 use leptos::prelude::*;
 use leptos::view;
+use reactive_stores::Store;
 use thaw::DrawerBody;
 use thaw::DrawerHeader;
 use thaw::DrawerPosition;
@@ -16,6 +21,20 @@ pub fn FocusScreen() -> impl leptos::IntoView {
     let open = RwSignal::new(false);
     let input_box_css_rule = "border border-gray-200 border-2 rounded-lg w-16 h-10 placeholder:text-center placeholder:text-grap-400 outline-none text-center";
     let input_box_wrapper_css_rule = "flex flex-col justify-center items-center";
+
+    let templates: Vec<FocusTemplateCardOptions> = vec![FocusTemplateCardOptions {
+        kind: FocusTemplateKind::Fitness,
+        title: "gg".to_string(),
+        key: 1,
+        description: "des".to_string(),
+        // timer: FocusTemplateTimerConfig {
+        //     count: 5,
+        //     short_break: 5,
+        //     long_break: 5,
+        // },
+    }];
+
+    let store = Store::new(StoredTemplates { templates });
 
     let categories = vec!["fitness", "work", "study", "personal"];
     view! {
@@ -43,9 +62,29 @@ pub fn FocusScreen() -> impl leptos::IntoView {
                 <span class="text-[20px] font-medium">Add template</span>
             </button>
 
-            <div class="flex flex-col justify-center items-center   h-[70vh]">
-                <FocusScreenEmptyStateIcon />
-            </div>
+            <Show
+                when=move || { store.templates().get().len() >= 1 as usize }
+                fallback=|| {
+                    view! {
+                        <div class="flex flex-col justify-center items-center   h-[70vh]">
+                            <FocusScreenEmptyStateIcon />
+                        </div>
+                    }
+                }
+            >
+                <For
+                    each=move || { store.templates().get() }
+                    key=|template| template.key
+                    let(entry)
+                >
+                    <FocusCardTemplate
+                        kind=entry.kind
+                        title=entry.title
+                        description=entry.description
+                    />
+                // timer=entry.timer
+                </For>
+            </Show>
 
             <OverlayDrawer
                 open
