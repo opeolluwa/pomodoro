@@ -5,3 +5,4 @@ pub mod home;
 pub mod notification;
 pub mod profile;
 pub mod typography;
+pub mod quotes;
