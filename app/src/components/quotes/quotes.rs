@@ -1,4 +1,4 @@
-use js_bindgen::random::get_random_uint;
+use js_bindgen::random::get_random_number;
 use serde::{Deserialize, Serialize};
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Quotes {
@@ -17,7 +17,7 @@ struct QuoteEngine {}
 impl QuoteEngine {
     pub fn fetch_one() -> Quotes {
         let quotes_last_index = Self::_parsed_quotes().len();
-        let index = get_random_uint(quotes_last_index);
+        let index = get_random_number(quotes_last_index);
 
         Self::_parsed_quotes()[index].clone()
     }
