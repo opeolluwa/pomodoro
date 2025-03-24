@@ -9,6 +9,7 @@ use app::*;
 use leptos::prelude::*;
 
 fn main() {
+    // init the db 
     console_error_panic_hook::set_once();
     mount_to_body(|| {
         view! { <App /> }

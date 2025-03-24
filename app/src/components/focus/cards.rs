@@ -59,10 +59,10 @@ border-radius: 8px;
         }
         FocusTemplateKind::Personal => {
             r#"
-min-height: 182px;
-background: linear-gradient(225deg, #FFEF5E 0%, #F7936F 100%);
+background: linear-gradient(180deg, #FF92AE 0%, #FF5A85 100%);
 box-shadow: 0px 1px 2px 1px rgba(5, 89, 91, 0.05), 0px 1px 1px rgba(5, 89, 91, 0.15);
 border-radius: 8px;
+
 "#
         }
         FocusTemplateKind::Fitness => {

@@ -1,8 +1,10 @@
 use leptos::prelude::ClassAttribute;
 use leptos::prelude::ElementChild;
+use leptos::prelude::StyleAttribute;
 use leptos::view;
 
 use crate::components::cards::generic_card::GenericCard;
+use crate::components::quotes::quotes::Quotes;
 use crate::components::typography::heading::HeadingText;
 use crate::components::typography::paragraph::BaseText;
 use crate::icons::play::PlayIconGreen;
@@ -10,7 +12,7 @@ use crate::icons::play::PlayIconGreen;
 #[leptos::component]
 pub fn TimerCard() -> impl leptos::IntoView {
     let timeslot_incative_css_rule =
-        "text-[#F7F7F7] leading-[16px] font-[12px] px-[10px] py-[5px] ";
+        "text-[#F7F7F7] leading-[16px] font-[12px] px-[10px] py-[5px] bg-dark";
     let timeslot_ative_css_rule =
         "text-[#05595B] bg-[rgba(245, 245, 245, 0.5)] px-[10px] py-[5px] ";
 
@@ -26,8 +28,10 @@ pub fn TimerCard() -> impl leptos::IntoView {
 
                 // the time box
                 <div class="bg-white/10 w-[220px] h-[220px] rounded-[5px] border-[1px] border-white mx-auto flex justify-center items-center gap-x-3 text-[#525772]">
-                    <span class=timer_css_rule>00</span>
-                    <span class="text-4xl font-bold leading-[36px]">:</span>
+                    <span class=timer_css_rule>25</span>
+                    <span class="text-4xl font-black text-white font-bold leading-[36px] text">
+                        :
+                    </span>
                     <span class=timer_css_rule>00</span>
                 </div>
 
@@ -45,13 +49,47 @@ pub fn TimerCard() -> impl leptos::IntoView {
 
 #[leptos::component]
 pub fn ActivityCard() -> impl leptos::IntoView {
+    let Quotes { quote, quoter } = Quotes::new();
+
+    // spawn_local(async move {
+    //     let database = database::load_database().await;
+    //     let quotes = database
+    //         .execute("SELECT * FROM quotes LIMIT 1", vec![])
+    //         .await;
+
+    //     let parsed_quotes: Vec<Quotes> = serde_wasm_bindgen::from_value(quotes).unwrap();
+    //     set_quotes.set(parsed_quotes);
+    // });
+
+    // let q = quotes.get();
+
     view! {
         <GenericCard class="mt-[20px] min-h-[380px] shadow-sm">
-
             <HeadingText>Activity check</HeadingText>
             // TODO: compute the message and render activities if any
             <BaseText class="text-left">No recent activity</BaseText>
 
+            <div class="w-full text-white itallic py-4" style="
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 10px 25px 10px 10px;
+            gap: 10px;
+            
+
+
+            background: linear-gradient(90.71deg, rgba(255, 146, 239, 0) -5.82%, #92FFC0 -5.82%, #002661 100.87%);
+            border-radius: 5px;
+            
+            /* Inside auto layout */
+            flex: none;
+            order: 3;
+            align-self: stretch;
+            flex-grow: 0;
+            
+            ">
+             {quote}
+            </div>
         </GenericCard>
     }
 }

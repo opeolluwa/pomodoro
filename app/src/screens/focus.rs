@@ -20,7 +20,9 @@ pub fn FocusScreen() -> impl leptos::IntoView {
     let input_box_css_rule = "border border-gray-200 border-2 rounded-lg w-16 h-10 placeholder:text-center placeholder:text-grap-400 outline-none text-center";
     let input_box_wrapper_css_rule = "flex flex-col justify-center items-center";
 
-    let (stored_templates, _set_stored_templates) = signal(vec![FocusTemplateCardOptions {
+    let (stored_templates, _set_stored_templates) = signal(vec![
+        
+        FocusTemplateCardOptions {
         kind: FocusTemplateKind::Work,
         title: "Ux Research".to_string(),
         key: 1,
@@ -42,6 +44,17 @@ pub fn FocusScreen() -> impl leptos::IntoView {
             long_break: 5,
         },
     }, 
+     FocusTemplateCardOptions {
+        kind: FocusTemplateKind::Personal,
+        title: "Ux Research".to_string(),
+        key: 1,
+        description: "Go online search for resources and read more articles".to_string(),
+        timer: FocusTemplateTimerConfig {
+            count: 5,
+            short_break: 5,
+            long_break: 5,
+        },
+    }, 
     FocusTemplateCardOptions {
         kind: FocusTemplateKind::Study,
         title: "Ux Research".to_string(),
@@ -52,13 +65,15 @@ pub fn FocusScreen() -> impl leptos::IntoView {
             short_break: 5,
             long_break: 5,
         },
-    }]);
+    }
+    
+    ]);
     let categories = vec!["fitness", "work", "study", "personal"];
     view! {
         <AppLayout header class="h-[90vh] bg-white overflow-scroll " active_route="focus">
 
             <Show
-                when=move || { stored_templates.get().len() >= 1 as usize }
+                when=move || { !(stored_templates.get().len() >= 1 as usize) }
                 fallback=move || {
                     view! {
                         <button
@@ -112,8 +127,8 @@ pub fn FocusScreen() -> impl leptos::IntoView {
 
             <Show
 
-                when=move || { stored_templates.get().len() >= 1 as usize }
-                fallback= move|| {
+                when=move || { !(stored_templates.get().len() >= 1 as usize) }
+                fallback=move || {
                     view! {
                         <div class="flex flex-col justify-center items-center   h-[70vh]">
                             <FocusScreenEmptyStateIcon />
