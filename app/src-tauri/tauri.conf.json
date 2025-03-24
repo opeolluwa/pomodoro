@@ -3,6 +3,11 @@
   "productName": "pomodoro",
   "version": "0.1.0",
   "identifier": "com.pomodoro.app",
+    "plugins": {
+    "sql": {
+      "preload": ["sqlite:pomodoro.db"]
+    }
+  },
   "build": {
     "beforeDevCommand": "trunk serve",
     "devUrl": "http://localhost:1420",

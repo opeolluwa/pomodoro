@@ -49,8 +49,19 @@ pub fn TimerCard() -> impl leptos::IntoView {
 
 #[leptos::component]
 pub fn ActivityCard() -> impl leptos::IntoView {
-    // let Quotes { quote, quoter } = &Quotes::load()[0];
-   
+    let Quotes { quote, quoter } = Quotes::new();
+
+    // spawn_local(async move {
+    //     let database = database::load_database().await;
+    //     let quotes = database
+    //         .execute("SELECT * FROM quotes LIMIT 1", vec![])
+    //         .await;
+
+    //     let parsed_quotes: Vec<Quotes> = serde_wasm_bindgen::from_value(quotes).unwrap();
+    //     set_quotes.set(parsed_quotes);
+    // });
+
+    // let q = quotes.get();
 
     view! {
         <GenericCard class="mt-[20px] min-h-[380px] shadow-sm">
@@ -77,7 +88,7 @@ pub fn ActivityCard() -> impl leptos::IntoView {
             flex-grow: 0;
             
             ">
-             "The engineer’s first problem in any design situation is to discover what the problem really is."
+             {quote}
             </div>
         </GenericCard>
     }
