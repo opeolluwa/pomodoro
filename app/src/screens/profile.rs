@@ -10,6 +10,7 @@ use leptos::view;
 use thaw::Flex;
 use thaw::FlexJustify;
 use thaw::Select;
+use thaw::SelectSize;
 
 #[leptos::component]
 pub fn ProfileScreen() -> impl leptos::IntoView {
@@ -22,8 +23,8 @@ pub fn ProfileScreen() -> impl leptos::IntoView {
         <AppLayout header class="h-[90vh] overflow scroll" active_route="profile">
 
             // TODO: only show if account exists
-            <SectionTitle>User Information</SectionTitle>
-            <GenericCard class="my-2">
+            // <SectionTitle >User Information</SectionTitle>
+            <GenericCard class="my-2 hidden">
                 <p>Jane doe</p>
                 <p>example@mailer.com</p>
             </GenericCard>
@@ -72,7 +73,7 @@ pub fn ProfileScreen() -> impl leptos::IntoView {
 
                 <Flex justify=FlexJustify::SpaceBetween class="my-3">
                     <span>Alarm sound</span>
-                    <Select value class="bg-gray-200 rounded px-4">
+                    <Select value size=SelectSize::Medium class="rounded px-4 border-none">
                         <option>"Red"</option>
                         <option>"Green"</option>
                         <option>"Blue"</option>

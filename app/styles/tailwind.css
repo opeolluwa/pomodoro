@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@plugin "daisyui";
+@plugin "@tailwindcss/typography";
+
 @theme {
   --color-app-text: #525772;
   --color-app-green: #75CE8E;
