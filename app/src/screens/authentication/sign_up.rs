@@ -46,7 +46,7 @@ pub fn SignUpScreen() -> impl leptos::IntoView {
 
                 </div>
                 <button class="shadow btn-md flex items-center justify-center my-3 btn bg-white text-[#525772] w-full border-none prose-lg">
-                    <img src="public/images/google-icon.png" class="object-fit size-4" />
+                    <img src="public/images/google-icon.png" class="object-fit size-6" />
                     Continue with Google
                 </button>
 

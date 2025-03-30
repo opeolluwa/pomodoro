@@ -6,3 +6,4 @@ pub mod focus;
 pub mod home;
 pub mod play;
 pub mod profile;
+pub mod eye;

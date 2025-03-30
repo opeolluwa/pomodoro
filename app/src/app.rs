@@ -8,7 +8,7 @@ use thaw::ConfigProvider;
 
 use crate::screens::{
     analytics::AnalyticsScreen,
-    authentication::{sign_in::SignInScreen, sign_up::SignUpScreen, welcome::WelcomeScreen},
+    authentication::{reset_password::ResetPasswordScreen, sign_in::SignInScreen, sign_up::SignUpScreen, welcome::WelcomeScreen},
     focus::FocusScreen,
     home::HomeScreen,
     notification::NotificationScreen,
@@ -24,6 +24,8 @@ pub fn App() -> impl IntoView {
                     <Route path=path!("/") view=WelcomeScreen />
                     <Route path=path!("/sign-in") view=SignInScreen />
                     <Route path=path!("/sign-up") view=SignUpScreen />
+                    <Route path=path!("/reset-password") view=ResetPasswordScreen />
+
 
                     <Route path=path!("/home") view=HomeScreen />
                     <Route path=path!("/notification") view=NotificationScreen />

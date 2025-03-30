@@ -18,34 +18,34 @@ pub fn SignInScreen() -> impl leptos::IntoView {
                     class="object-contain h-40 block"
                 />
 
-                <form class="flex flex-col gap-y-6 w-full mt-6">
+                <form class="flex flex-col gap-y-8 w-full mt-6">
 
                     <input
                         type="text"
-                        placeholder="email"
-                        class="input input-md bg-[#f7f7f7] border-none hover:border-none focus:border-app-green/50 w-full "
+                        placeholder="Email"
+                        class="input input-lg bg-[#f7f7f7] border-none hover:border-none focus:border-app-green/50 w-full "
                     />
 
                     <input
                         type="text"
-                        placeholder="password"
-                        class="input input-md bg-[#f7f7f7] border-none hover:border-none focus:border-app-green/50"
+                        placeholder="Password"
+                        class="input input-lg bg-[#f7f7f7] border-none hover:border-none focus:border-app-green/50"
                     />
 
-                    <button class="shadow btn-md flex items-center justify-center my-3 btn bg-white text-[#525772] w-full border-none prose-lg">
+                    <button class="shadow btn-lg flex items-center justify-center btn bg-white text-[#525772] w-full border-none prose-lg">
                         <img src="public/images/google-icon.png" class="object-fit size-4" />
                         Continue with Google
                     </button>
 
-                    <button class="btn btn-md  bg-app-green text-white my-3   w-full border-none prose-lg">
+                    <button class="btn btn-lg  bg-app-green text-white w-full border-none ">
                         Continue
                     </button>
                 </form>
 
                 <span class="prose mt-6">
-                    "Already have an account?"
-                    <a href="/" class="text-app-green text-decoration-none pl-2">
-                        Sign in
+                    "Have you"
+                    <a href="/reset-password" class="text-app-green no-underline pl-2">
+                    forgotten password
                     </a>
                 </span>
             </div>

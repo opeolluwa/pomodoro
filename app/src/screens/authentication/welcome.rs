@@ -19,26 +19,26 @@ pub fn WelcomeScreen() -> impl leptos::IntoView {
                     class="object-contain h-40 block"
                 />
 
-                <p class="prose-md mt-2 text-center">
+                <p class="prose-md mt-3 text-center">
 
                     Increase your productivity and manage your time effectively with Pomodore.
                 </p>
                 <button
-                    class="btn btn-md bg-[#f5f5f5] text-[#525772] mt-5 mb-3 w-full border-none prose-lg "
+                    class="btn btn-lg bg-[#f5f5f5] text-[#525772] mt-5 mb-3 w-full border-none text-lg "
                     on:click=move |_| change_location_to("/sign-in")
                 >
                     Sign in
                 </button>
 
                 <button
-                    class="btn btn-md bg-app-green text-white my-3   w-full border-none prose-lg"
+                    class="btn btn-lg bg-app-green text-white my-3   w-full border-none prose-lg"
                     on:click=move |_| change_location_to("/sign-up")
                 >
                     Sign up
                 </button>
 
-                <button class="shadow flex items-center justify-center my-3 btn bg-white text-[#525772] w-full border-none prose-lg">
-                    <img src="public/images/google-icon.png" class="object-fit size-4" />
+                <button class="shadow flex items-center justify-center my-3 btn bg-white btn-lg text-[#525772] w-full border-none prose-lg">
+                    <img src="public/images/google-icon.png" class="object-fit size-6" />
                     Continue with Google
                 </button>
             </div>
