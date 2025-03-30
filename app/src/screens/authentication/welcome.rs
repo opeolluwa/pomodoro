@@ -11,7 +11,7 @@ pub fn WelcomeScreen() -> impl leptos::IntoView {
     view! {
         <AuthenticationLayout class="">
 
-            <HeadingText class="text-center text-2xl">"Welcome!"</HeadingText>
+            <HeadingText class="text-center text-2xl">"Reset password"</HeadingText>
 
             <div class="flex  flex-col justify-center items-center  h-[90vh]">
                 <img
@@ -21,8 +21,10 @@ pub fn WelcomeScreen() -> impl leptos::IntoView {
 
                 <p class="prose-md mt-3 text-center">
 
-                    Increase your productivity and manage your time effectively with Pomodore.
+                    Input your new password in the text box below, following this rules;
+
                 </p>
+
                 <button
                     class="btn btn-lg bg-[#f5f5f5] text-[#525772] mt-5 mb-3 w-full border-none text-lg "
                     on:click=move |_| change_location_to("/sign-in")

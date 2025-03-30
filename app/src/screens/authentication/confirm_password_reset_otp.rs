@@ -1,4 +1,3 @@
-use js_bindgen::navigate::change_location_to;
 use leptos::prelude::*;
 use leptos::view;
 
@@ -35,12 +34,11 @@ pub fn ConfirmResetOtpScreen() -> impl leptos::IntoView {
                     <span>Code expires in</span>
                     <span class="text-app-green pl-2">"0:22"</span>
                 </div>
-                <button
+                <a href="/set-new-password"
                     class="btn btn-lg bg-[#f5f5f5] text-[#525772] mt-5 mb-3 w-full border-none text-lg "
-                    on:click=move |_| change_location_to("/sign-in")
                 >
                     Resend code
-                </button>
+                </a>
 
             </form>
         </AuthenticationLayout>

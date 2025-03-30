@@ -8,7 +8,7 @@ use thaw::ConfigProvider;
 
 use crate::screens::{
     analytics::AnalyticsScreen,
-    authentication::{confirm_password_reset_otp::ConfirmResetOtpScreen, reset_password::ResetPasswordScreen, sign_in::SignInScreen, sign_up::SignUpScreen, welcome::WelcomeScreen},
+    authentication::{confirm_password_reset_otp::ConfirmResetOtpScreen, reset_password::ResetPasswordScreen, set_new_password::SetNewPasswordScreen, sign_in::SignInScreen, sign_up::SignUpScreen, welcome::WelcomeScreen},
     focus::FocusScreen,
     home::HomeScreen,
     notification::NotificationScreen,
@@ -26,6 +26,7 @@ pub fn App() -> impl IntoView {
                     <Route path=path!("/sign-up") view=SignUpScreen />
                     <Route path=path!("/reset-password") view=ResetPasswordScreen />
                     <Route path=path!("/confirm-reset-otp") view=ConfirmResetOtpScreen />
+                    <Route path=path!("/set-new-password") view=SetNewPasswordScreen />
 
                     <Route path=path!("/home") view=HomeScreen />
                     <Route path=path!("/notification") view=NotificationScreen />
