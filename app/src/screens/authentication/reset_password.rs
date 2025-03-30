@@ -15,27 +15,26 @@ pub fn ResetPasswordScreen() -> impl leptos::IntoView {
             <HeadingText class="text-center text-2xl">"Reset password"</HeadingText>
 
             <div class="flex  flex-col justify-center items-center gap-y-4 mt-8 ">
-           
-                <p class="prose-md mt-3 text-center">
 
-                  Please type in your email, we will send you a link to reset the password.
+                <p class="prose-md mt-6">
+
+                    Please type in your email, we will send you a link to reset the password.
                 </p>
-              
 
-                  <input
-                        type="text"
-                        placeholder="Email"
-                        class="input input-lg bg-[#f7f7f7] border-none hover:border-none focus:border-app-green/50 w-full "
-                    />
+                <input
+                    type="text"
+                    placeholder="Email"
+                    class="input input-lg bg-[#f7f7f7] border-none hover:border-none focus:border-app-green/50 w-full "
+                />
 
-                <button
+                <a
+                    href="/confirm-reset-otp"
                     class="btn btn-lg bg-app-green text-white my-3   w-full border-none text-lg "
-                    on:click=move |_| change_location_to("/sign-up")
                 >
-                Continue
-                </button>
 
-              
+                    Continue
+                </a>
+
             </div>
         </AuthenticationLayout>
     }
