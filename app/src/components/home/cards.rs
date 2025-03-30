@@ -63,12 +63,12 @@ pub fn ActivityCard() -> impl leptos::IntoView {
             // TODO: compute the message and render activities if any
             <BaseText class="text-left mt-2">No recent activity</BaseText>
 
-            // <div class="w-full text-white itallic py-4 px-4" style="
-            // background: linear-gradient(90.71deg, rgba(255, 146, 239, 0) -5.82%, #92FFC0 -5.82%, #002661 100.87%);
-            // border-radius: 5px;
-            // ">
-            //  {quote}
-            // </div>
+        // <div class="w-full text-white itallic py-4 px-4" style="
+        // background: linear-gradient(90.71deg, rgba(255, 146, 239, 0) -5.82%, #92FFC0 -5.82%, #002661 100.87%);
+        // border-radius: 5px;
+        // ">
+        // {quote}
+        // </div>
         </GenericCard>
     }
 }
