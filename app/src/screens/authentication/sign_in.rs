@@ -44,8 +44,8 @@ pub fn SignInScreen() -> impl leptos::IntoView {
 
                 <span class="prose mt-6">
                     "Have you"
-                    <a href="/reset-password" class="text-app-green no-underline pl-2">
-                    forgotten password
+                    <a href="/reset-password" class="text-app-green no-underline pl-[5px]">
+                        forgotten password?
                     </a>
                 </span>
             </div>

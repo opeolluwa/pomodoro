@@ -10,7 +10,7 @@
   },
   "build": {
     "beforeDevCommand": "trunk serve",
-    "devUrl": "http://localhost:1420",
+    "devUrl": "http://0.0.0.0:1420",
     "beforeBuildCommand": "trunk build",
     "frontendDist": "../dist"
   },
