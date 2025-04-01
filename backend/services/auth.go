@@ -1,6 +1,6 @@
 package services
 
 
-type AuthenticationService {
-	UserRepository 
+type AuthenticationService struct {
+	// UserRepository 
 }
