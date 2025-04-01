@@ -6,7 +6,7 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 # shellcheck disable=SC2086
 export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
 export LEPTOS_TAILWIND_VERSION='v4.0.0'
-export TAURI_DEV_HOST="192.168.0.170"
+export ENV=local 
 
 platform=$1
 echo "parsing $platform..."
@@ -19,7 +19,7 @@ elif [[ "$platform" == "styles" ]]; then
     npx @tailwindcss/cli -i ./app/styles/tailwind.css -o ./app/styles/app.css --watch --minify
 elif [[ "$platform" == "server" ]]; then
     cd backend || exit
-    air --root .
+    docker compose up -d && docker compose logs -f app
 else
     echo "Unsupported platform"
     exit 1

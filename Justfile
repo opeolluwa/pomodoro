@@ -10,11 +10,10 @@ SCRIPTS_PATH := "./scripts"
 
 alias d := develop
 alias w:= develop 
-alias b:= build 
 
 
 set export := true
-set dotenv-filename := "./.envrc"
+set dotenv-filename := "./backend/.env"
 set dotenv-load :=  true 
 set ignore-comments := true
 
