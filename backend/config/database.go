@@ -13,11 +13,11 @@ func LoadDatabase() *gorm.DB {
 	env := ExtractEnv()
 
 	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s",
+		env.Database.Host,
 		env.Database.User,
 		env.Database.Password,
-		env.Database.Host,
-		env.Database.Port,
 		env.Database.Name,
+		env.Database.Port,
 	)
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})

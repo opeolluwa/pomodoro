@@ -31,7 +31,7 @@ services:
     environment:
       - POSTGRES_DB=pomodoro
       - POSTGRES_USER=pomodoro
-      - POSTGRES_PASSWORD=domodoro
+      - POSTGRES_PASSWORD=pomodoro
     ports:
       - "6543:5432"
     healthcheck:
@@ -39,6 +39,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - internal
 
   pgadmin:
     image: dpage/pgadmin4
