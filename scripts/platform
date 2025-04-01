@@ -1,5 +1,6 @@
-#!/usr/bin/bash
+#!/bin/bash
 
+# Function to parse the app platform
 parse_platform() {
     local platform=$1
     platform=$(echo "$platform" | tr '[:upper:]' '[:lower:]' | xargs) # Convert to lowercase and strip spaces
@@ -7,9 +8,17 @@ parse_platform() {
         echo "android"
     elif [[ "$platform" == "ios" || "$platform" == "i" ]]; then
         echo "ios"
+    elif [[ "$platform" == "styles" ]]; then
+        echo "styles"
+    elif [[ "$platform" == "server" || "$platform" == 's' ]]; then
+        echo "server"
     else
-        echo "Invalid platform: Use one of 'android' or 'ios'"
+        echo "Invalid platform: Use one of 'android' or 'ios', 'style' or 'server' "
         exit 1
     fi
 }
 
+# Parse the platform argument
+platform=$(parse_platform "$1")
+
+echo "$platform"

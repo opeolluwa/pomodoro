@@ -1,24 +1,15 @@
 #!/bin/bash
 
-# Function to parse the app platform
-parse_platform() {
-    local platform=$1
-    platform=$(echo "$platform" | tr '[:upper:]' '[:lower:]' | xargs)  # Convert to lowercase and strip spaces
-    if [[ "$platform" == "android" || "$platform" == "and" || "$platform" == "a" ]]; then
-        echo "android"
-    elif [[ "$platform" == "ios" || "$platform" == "i" ]]; then
-        echo "ios"
-    elif [[ "$platform" == "styles" ]]; then 
-        echo "styles"
-    else
-        echo "Invalid platform: Use one of 'android' or 'ios'"
-        exit 1
-    fi
-}
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+# shellcheck disable=SC2155
+# shellcheck disable=SC2086
+export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
+export LEPTOS_TAILWIND_VERSION='v4.0.0'
+export TAURI_DEV_HOST="192.168.0.170"
 
-# Parse the platform argument
-platform=$(parse_platform "$1")
-
+platform=$1
+echo "parsing $platform..."
 # Run command based on the platform
 if [[ "$platform" == "android" ]]; then
     cargo tauri android dev
@@ -26,6 +17,9 @@ elif [[ "$platform" == "ios" ]]; then
     cargo tauri ios dev
 elif [[ "$platform" == "styles" ]]; then
     npx @tailwindcss/cli -i ./app/styles/tailwind.css -o ./app/styles/app.css --watch --minify
+elif [[ "$platform" == "server" ]]; then
+    cd backend || exit
+    air --root .
 else
     echo "Unsupported platform"
     exit 1
