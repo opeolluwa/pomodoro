@@ -1,28 +1,30 @@
 package main
 
 import (
-	"log"
-	"net/http"
+	"fmt"
 
+	"com.pomodoro.app/config"
+	"com.pomodoro.app/routes"
 	"github.com/labstack/echo/v4"
-	"gorm.io/driver/postgres"
-	"gorm.io/gorm"
+	"github.com/labstack/echo/v4/middleware"
 )
 
 func main() {
+	env := config.ExtractEnv()
+	port := env.ServerPort
 
-	// connectto the database
-	dsn := "host=localhost user=gorm password=gorm dbname=gorm port=9920 sslmode=disable TimeZone=Asia/Shanghai"
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
-
-	if err != nil {
-		log.Fatal(err)
+	if port == "" {
+		port = "8080"
 	}
 
-	// pass db to service 
 	e := echo.New()
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, World!")
-	})
-	e.Logger.Fatal(e.Start(":1323"))
+	e.Use(middleware.CORS())
+	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{
+		Format: "method=${method}, uri=${uri}, status=${status}\n",
+	}))
+
+	db := config.LoadDatabase()
+	routes.RegisterRoutes(e, db)
+
+	e.Logger.Fatal(e.Start(fmt.Sprintf(":%v", port)))
 }
