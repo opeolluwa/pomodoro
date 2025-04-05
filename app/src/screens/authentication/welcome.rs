@@ -1,4 +1,3 @@
-
 use js_bindgen::navigate::change_location_to;
 use leptos::prelude::*;
 use leptos::view;
@@ -11,7 +10,7 @@ pub fn WelcomeScreen() -> impl leptos::IntoView {
     view! {
         <AuthenticationLayout class="">
 
-            <HeadingText class="text-center text-2xl">"Reset password"</HeadingText>
+            <HeadingText class="text-center text-2xl">"Welcome!"</HeadingText>
 
             <div class="flex  flex-col justify-center items-center  h-[90vh]">
                 <img
@@ -19,27 +18,29 @@ pub fn WelcomeScreen() -> impl leptos::IntoView {
                     class="object-contain h-40 block"
                 />
 
-                <p class="prose-md mt-3 text-center">
+                <p class="prose-lg mt-3 mb-4 text-center text-gray-600">
 
-                    Input your new password in the text box below, following this rules;
+                    Increase your productivity and manage your time effectively with Pomodore.
 
                 </p>
 
-                <button
+                <a
+                    href="/sign-in"
                     class="btn btn-lg bg-[#f5f5f5] text-[#525772] mt-5 mb-3 w-full border-none text-lg "
-                    on:click=move |_| change_location_to("/sign-in")
                 >
+
                     Sign in
-                </button>
+                </a>
 
-                <button
+                <a
+                    href="sign-up"
                     class="btn btn-lg bg-app-green text-white my-3   w-full border-none prose-lg"
-                    on:click=move |_| change_location_to("/sign-up")
                 >
-                    Sign up
-                </button>
 
-                <button class="shadow flex items-center justify-center my-3 btn bg-white btn-lg text-[#525772] w-full border-none prose-lg">
+                    Sign up
+                </a>
+
+                <button class="shadow flex items-center justify-center my-3 btn bg-white btn-lg text-[#525772] w-full border-none prose-lg font-base font-[400]">
                     <img src="public/images/google-icon.png" class="object-fit size-6" />
                     Continue with Google
                 </button>

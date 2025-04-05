@@ -1,4 +1,3 @@
-use js_bindgen::navigate::change_location_to;
 use leptos::prelude::*;
 use leptos::view;
 
@@ -12,54 +11,48 @@ pub fn SignUpScreen() -> impl leptos::IntoView {
 
             <HeadingText class="text-center text-2xl">"Sign up!"</HeadingText>
 
-            <div class="flex  flex-col justify-center items-center  h-[90vh]">
-                <img
-                    src="public/images/sign-up-page-illustration.png"
-                    class="object-contain h-40 block"
+            <form class="flex items-center flex-col mt-12  gap-y-6">
+                <input
+                    type="text"
+                    placeholder="full name"
+                    class="input input-lg  bg-[#f7f7f7] border-none hover:border-none focus:border-app-green/50 w-full"
                 />
 
-                <div class="flex flex-col gap-y-6 w-full mt-6">
+                <input
+                    type="text"
+                    placeholder="email"
+                    class="input input-lg bg-[#f7f7f7] border-none hover:border-none focus:border-app-green/50 w-full "
+                />
 
-                    <input
-                        type="text"
-                        placeholder="full name"
-                        class="input input-md  bg-[#f7f7f7] border-none hover:border-none focus:border-app-green/50 w-full"
-                    />
+                <input
+                    type="text"
+                    placeholder="occupation"
+                    class="input input-lg bg-[#f7f7f7] border-none hover:border-none focus:border-app-green/50 "
+                />
 
-                    <input
-                        type="text"
-                        placeholder="femail"
-                        class="input input-md bg-[#f7f7f7] border-none hover:border-none focus:border-app-green/50 w-full "
-                    />
+                <input
+                    type="text"
+                    placeholder="password"
+                    class="input input-lg bg-[#f7f7f7] border-none hover:border-none focus:border-app-green/50"
+                />
 
-                    <input
-                        type="text"
-                        placeholder="occupation"
-                        class="input input-md bg-[#f7f7f7] border-none hover:border-none focus:border-app-green/50 "
-                    />
-
-                    <input
-                        type="text"
-                        placeholder="password"
-                        class="input input-md bg-[#f7f7f7] border-none hover:border-none focus:border-app-green/50"
-                    />
-
-                </div>
-                <button class="shadow btn-md flex items-center justify-center my-3 btn bg-white text-[#525772] w-full border-none prose-lg">
+                <button class="shadow btn-lg flex items-center justify-center  btn bg-white text-[#525772] w-full border-none prose-lg">
                     <img src="public/images/google-icon.png" class="object-fit size-6" />
                     Continue with Google
                 </button>
 
-                <button class="btn btn-md  bg-app-green text-white my-3   w-full border-none prose-lg">
+                <button class="btn btn-lg  bg-app-green text-white  w-full border-none prose-lg">
                     Continue
                 </button>
 
-                <span class="prose mt-6">
-                    "Already have an account?"
-                    <a href="/" class="text-app-green text-decoration-none pl-2">
-                        Sign in
-                    </a>
-                </span>
+            </form>
+
+
+            <div class="prose mt-6 text-center text-gray-600">
+                "Already have an account?"
+                <a href="/" class="text-app-green no-underline pl-2">
+                    Sign in
+                </a>
             </div>
         </AuthenticationLayout>
     }
