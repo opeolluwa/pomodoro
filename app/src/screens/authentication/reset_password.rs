@@ -1,6 +1,5 @@
 
 
-use js_bindgen::navigate::change_location_to;
 use leptos::prelude::*;
 use leptos::view;
 
@@ -16,7 +15,7 @@ pub fn ResetPasswordScreen() -> impl leptos::IntoView {
 
             <div class="flex  flex-col justify-center items-center gap-y-4 mt-8 ">
 
-                <p class="prose-md mt-6">
+                <p class="prose-lg text-gray-600 mt-6">
 
                     Please type in your email, we will send you a link to reset the password.
                 </p>

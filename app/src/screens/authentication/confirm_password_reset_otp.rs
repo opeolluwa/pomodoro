@@ -14,10 +14,10 @@ pub fn ConfirmResetOtpScreen() -> impl leptos::IntoView {
             <form class="flex  flex-col justify-center items-center gap-y-6  h-[90vh]">
                 <img
                     src="/public/images/confirm-otp-illustration.png"
-                    class="object-contain h-40 block"
+                    class="object-contain h-[125px] block"
                 />
 
-                <p class="prose-md mt-3 text-center">
+                <p class="prose-lg text-gray-600 mt-3 text-center">
 
                     A message has been sent to your mail containing a four digit code, enter the code below to reset your password.
                 </p>
@@ -34,7 +34,8 @@ pub fn ConfirmResetOtpScreen() -> impl leptos::IntoView {
                     <span>Code expires in</span>
                     <span class="text-app-green pl-2">"0:22"</span>
                 </div>
-                <a href="/set-new-password"
+                <a
+                    href="/set-new-password"
                     class="btn btn-lg bg-[#f5f5f5] text-[#525772] mt-5 mb-3 w-full border-none text-lg "
                 >
                     Resend code

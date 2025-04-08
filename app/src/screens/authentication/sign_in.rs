@@ -23,7 +23,7 @@ pub fn SignInScreen() -> impl leptos::IntoView {
                     <input
                         type="text"
                         placeholder="Email"
-                        class="input input-lg bg-[#f7f7f7] border-none hover:border-none focus:border-app-green/50 w-full "
+                        class="input input-lg bg-[#f7f7f7] border-none hover:border-none focus:border-app-green w-full "
                     />
 
                     <input
@@ -42,7 +42,7 @@ pub fn SignInScreen() -> impl leptos::IntoView {
                     </button>
                 </form>
 
-                <span class="prose mt-6">
+                <span class="prose mt-4">
                     "Have you"
                     <a href="/reset-password" class="text-app-green no-underline pl-[5px]">
                         forgotten password?

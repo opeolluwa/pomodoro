@@ -18,8 +18,7 @@ pub fn SetNewPasswordScreen() -> impl leptos::IntoView {
 
             <HeadingText class="text-center text-2xl">"Reset password"</HeadingText>
 
-            
-             <div class="flex  flex-col  gap-y-4 mt-8 ">
+            <div class="flex  flex-col  gap-y-4 mt-8 ">
 
                 <p class="prose-md mt-6">
 
@@ -33,22 +32,20 @@ pub fn SetNewPasswordScreen() -> impl leptos::IntoView {
                         .map(|entry| view! { <li class="text-left my-1">{entry}</li> })
                         .collect_view()}
                 </ul>
-              
-   <input
+
+                <input
                     type="text"
                     placeholder="Email"
                     class="input input-lg bg-[#f7f7f7] border-none hover:border-none focus:border-app-green/50 w-full "
                 />
 
-                
                 <button
                     class="btn btn-lg bg-app-green text-white my-3   w-full border-none prose-lg"
                     on:click=move |_| change_location_to("/sign-up")
                 >
-         Save
+                    Save
                 </button>
 
-              
             </div>
         </AuthenticationLayout>
     }
