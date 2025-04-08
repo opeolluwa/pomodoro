@@ -3,11 +3,15 @@ package services
 import (
 	"log"
 	"net/http"
+	"time"
 
 	"com.pomodoro.app/adapters/dto"
 	"com.pomodoro.app/adapters/response"
+	"com.pomodoro.app/config"
 	"com.pomodoro.app/entities"
 	"com.pomodoro.app/repositories"
+	"com.pomodoro.app/utils"
+	"github.com/golang-jwt/jwt/v5"
 	"github.com/labstack/echo/v4"
 )
 
@@ -39,36 +43,45 @@ func (s *AuthenticationService) Register(ctx echo.Context) error {
 		return ctx.JSON(http.StatusInternalServerError, response.NewApiResponse(nil, err.Error()))
 	}
 
-	return ctx.JSON(http.StatusCreated, response.NewApiResponse(nil, "Account successfully created"))
+	claims := &utils.JwtClaims{
+		Identifier: user.Identifier,
+		Email:      user.Email,
+		RegisteredClaims: jwt.RegisteredClaims{
+			ExpiresAt: jwt.NewNumericDate(time.Now().Add(time.Minute * 5)), // 5 mnutes
+		},
+	}
+
+	// token := jwt.NewWithClaims(jwt.SigningMethodHS512, claims)
+	token := jwt.NewWithClaims(jwt.SigningMethodHS512, claims)
+
+	hash, err := token.SignedString([]byte(config.ExtractEnv().Secrets.Jwt))
+	println(hash)
+	if err != nil {
+		log.Fatal(err)
+		s.UserRepository.Delete(user.Identifier)
+		return ctx.JSON(http.StatusInternalServerError, response.NewApiResponse(nil, "Request could not be processed at this time, please try again later"))
+	}
+	return ctx.JSON(http.StatusCreated, response.NewApiResponse(response.SignUpResponse{
+		Jwt: hash,
+	}, "Account successfully created"))
 }
 
+// func (s *AuthenticationService) Login(ctx echo.Context) error {
 
-func (s * AuthenticationService) Login(ctx echo.Context) error {
-	
-}
+// }
 
+// func (s *AuthenticationService) VerifyEmail(ctx echo.Context) error {
 
+// }
 
-func (s * AuthenticationService) VerifyEmail( ctx echo.Context) error {
+// func (s *AuthenticationService) ForgottenPassword(ctx echo.Context) error {
 
-}
+// }
 
+// func (s *AuthenticationService) ConfirmResetOtp(ctx echo.Context) error {
 
+// }
 
-func (s * AuthenticationService) ForgottenPassword( ctx echo.Context) error {
-	
-}
+// func (s *AuthenticationService) SetNewPassword(ctx echo.Context) error {
 
-
-
-func (s * AuthenticationService) ConfirmResetOtp( ctx echo.Context) error {
-	
-}
-
-
-
-
-func (s * AuthenticationService) SetNewPassword( ctx echo.Context) error {
-	
-}
-
+// }

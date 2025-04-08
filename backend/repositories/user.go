@@ -1,6 +1,7 @@
 package repositories
 
 import (
+	"log"
 	"strings"
 
 	"com.pomodoro.app/adapters/dto"
@@ -27,6 +28,18 @@ func (r *UserRepository) FindOneByEmail(email string) entities.User {
 	return user
 }
 
+func (r *UserRepository) FindOneByIdentifier(identifier string) (entities.User, error) {
+	var user entities.User
+	err := r.Db.Where("identifier = ?", strings.TrimSpace(identifier)).First(&user).Error
+
+	if err != nil {
+		log.Fatal(err)
+		return entities.User{}, err
+	}
+
+	return user, nil
+}
+
 func (r *UserRepository) Create(payload dto.CreateUserDto) (entities.User, error) {
 	argon := argon2.DefaultConfig()
 	encoded, err := argon.HashEncoded([]byte(strings.TrimSpace(payload.Password)))
@@ -49,4 +62,13 @@ func (r *UserRepository) Create(payload dto.CreateUserDto) (entities.User, error
 	}
 
 	return r.FindOneByEmail(payload.Email), nil
+}
+
+func (r *UserRepository) Delete(identifier string) error {
+	user, err := r.FindOneByIdentifier(identifier)
+	if err != nil {
+		return err
+	}
+
+	return r.Db.Where("identifier = ?", identifier).Delete(user).Error
 }
