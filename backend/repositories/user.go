@@ -42,7 +42,7 @@ func (r *UserRepository) Create(payload dto.CreateUserDto) (entities.User, error
 		Password:   string(encoded),
 	}
 
-	result := r.Db.Create(user)
+	result := r.Db.Create(&user)
 
 	if result.Error != nil {
 		return entities.User{}, result.Error

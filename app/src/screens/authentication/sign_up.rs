@@ -47,10 +47,8 @@ pub fn SignUpScreen() -> impl leptos::IntoView {
 
             </form>
 
-
             <div class="prose mt-6 text-center text-gray-600">
-                "Already have an account?"
-                <a href="/" class="text-app-green no-underline pl-2">
+                "Already have an account?" <a href="/" class="text-app-green no-underline pl-2">
                     Sign in
                 </a>
             </div>

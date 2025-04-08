@@ -6,6 +6,7 @@ import (
 
 	"com.pomodoro.app/adapters/dto"
 	"com.pomodoro.app/adapters/response"
+	"com.pomodoro.app/entities"
 	"com.pomodoro.app/repositories"
 	"github.com/labstack/echo/v4"
 )
@@ -23,21 +24,51 @@ func NewAuthenticationService(repo repositories.UserRepository) *AuthenticationS
 func (s *AuthenticationService) Register(ctx echo.Context) error {
 	request := new(dto.CreateUserDto)
 	if err := ctx.Bind(request); err != nil {
-		return err
+		log.Println(err.Error())
+		return ctx.JSON(http.StatusBadRequest, response.NewApiResponse(nil, err.Error()))
 	}
-	
 
-	// user := s.UserRepository.FindOneByEmail(request.Email)
-	// if user != entities.User{} {
-	// 	return ctx.JSON(http.StatusConflict, reponse.NewApiResponse(nil, "A user with the provided email already exists"))
-	// }
+	user := s.UserRepository.FindOneByEmail(request.Email)
+	if user != (entities.User{}) {
+		return ctx.JSON(http.StatusConflict, response.NewApiResponse(nil, "A user with the provided email already exists"))
+	}
 
 	_, err := s.UserRepository.Create(*request)
 	if err != nil {
-		log.Fatal(err)
-		// return ctx.JSON(http.StatusInternalServerError, response.NewApiResponse(nil, err.Error()))
+		log.Println(err.Error())
+		return ctx.JSON(http.StatusInternalServerError, response.NewApiResponse(nil, err.Error()))
 	}
-
 
 	return ctx.JSON(http.StatusCreated, response.NewApiResponse(nil, "Account successfully created"))
 }
+
+
+func (s * AuthenticationService) Login(ctx echo.Context) error {
+	
+}
+
+
+
+func (s * AuthenticationService) VerifyEmail( ctx echo.Context) error {
+
+}
+
+
+
+func (s * AuthenticationService) ForgottenPassword( ctx echo.Context) error {
+	
+}
+
+
+
+func (s * AuthenticationService) ConfirmResetOtp( ctx echo.Context) error {
+	
+}
+
+
+
+
+func (s * AuthenticationService) SetNewPassword( ctx echo.Context) error {
+	
+}
+

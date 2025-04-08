@@ -1,4 +1,3 @@
-use js_bindgen::navigate::change_location_to;
 use leptos::prelude::*;
 use leptos::view;
 
@@ -26,7 +25,7 @@ pub fn WelcomeScreen() -> impl leptos::IntoView {
 
                 <a
                     href="/sign-in"
-                    class="btn btn-lg bg-[#f5f5f5] text-[#525772] mt-5 mb-3 w-full border-none text-lg "
+                    class="btn btn-lg bg-[#f5f5f5] text-[#525772] mt-5 mb-3 w-full border-none text-lg shadow-sm"
                 >
 
                     Sign in
@@ -34,13 +33,12 @@ pub fn WelcomeScreen() -> impl leptos::IntoView {
 
                 <a
                     href="sign-up"
-                    class="btn btn-lg bg-app-green text-white my-3   w-full border-none prose-lg"
+                    class="btn btn-lg bg-app-green text-white my-3   w-full border-none prose-lg shadow-sm"
                 >
-
                     Sign up
                 </a>
 
-                <button class="shadow flex items-center justify-center my-3 btn bg-white btn-lg text-[#525772] w-full border-none prose-lg font-base font-[400]">
+                <button class="shadow-sm flex items-center justify-center my-3 btn bg-white btn-lg text-[#525772] w-full border-none prose-lg font-base font-[400]">
                     <img src="public/images/google-icon.png" class="object-fit size-6" />
                     Continue with Google
                 </button>
