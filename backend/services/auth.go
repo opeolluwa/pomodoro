@@ -42,7 +42,6 @@ func (s *AuthenticationService) Register(ctx echo.Context) error {
 
 	signUpError := s.UserRepository.Create(*request)
 	if signUpError != nil {
-		log.Println(err.Error())
 		return ctx.JSON(http.StatusInternalServerError, response.NewApiResponse(nil, signUpError.Error()))
 	}
 
