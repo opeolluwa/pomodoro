@@ -32,15 +32,35 @@ func (s *AuthenticationService) Register(ctx echo.Context) error {
 		return ctx.JSON(http.StatusBadRequest, response.NewApiResponse(nil, err.Error()))
 	}
 
-	user := s.UserRepository.FindOneByEmail(request.Email)
+	user, err := s.UserRepository.FindOneByEmail(request.Email)
+	if err != nil {
+		return ctx.JSON(http.StatusBadRequest, response.NewApiResponse(nil, err.Error()))
+	}
 	if user != (entities.User{}) {
 		return ctx.JSON(http.StatusConflict, response.NewApiResponse(nil, "A user with the provided email already exists"))
 	}
 
-	_, err := s.UserRepository.Create(*request)
-	if err != nil {
+	signUpError := s.UserRepository.Create(*request)
+	if signUpError != nil {
 		log.Println(err.Error())
-		return ctx.JSON(http.StatusInternalServerError, response.NewApiResponse(nil, err.Error()))
+		return ctx.JSON(http.StatusInternalServerError, response.NewApiResponse(nil, signUpError.Error()))
+	}
+
+	return ctx.JSON(http.StatusCreated, response.NewApiResponse(nil, "Account successfully created"))
+}
+
+func (s *AuthenticationService) Login(ctx echo.Context) error {
+	request := new(dto.LoginUserDto)
+	if err := ctx.Bind(request); err != nil {
+		log.Println(err.Error())
+		return ctx.JSON(http.StatusBadRequest, response.NewApiResponse(nil, err.Error()))
+	}
+
+	user, err := s.UserRepository.FindOneByEmail(utils.ParseString(request.Email))
+
+	if err != nil {
+		log.Fatal(err)
+		return ctx.JSON(http.StatusBadRequest, response.NewApiResponse(nil, err.Error()))
 	}
 
 	claims := &utils.JwtClaims{
@@ -51,24 +71,17 @@ func (s *AuthenticationService) Register(ctx echo.Context) error {
 		},
 	}
 
-	// token := jwt.NewWithClaims(jwt.SigningMethodHS512, claims)
 	token := jwt.NewWithClaims(jwt.SigningMethodHS512, claims)
-
 	hash, err := token.SignedString([]byte(config.ExtractEnv().Secrets.Jwt))
-	println(hash)
 	if err != nil {
 		log.Fatal(err)
 		s.UserRepository.Delete(user.Identifier)
 		return ctx.JSON(http.StatusInternalServerError, response.NewApiResponse(nil, "Request could not be processed at this time, please try again later"))
 	}
-	return ctx.JSON(http.StatusCreated, response.NewApiResponse(response.SignUpResponse{
+	return ctx.JSON(http.StatusOK, response.NewApiResponse(response.LoginResponse{
 		Jwt: hash,
-	}, "Account successfully created"))
+	}, "Request could not be processed at this time, please try again later"))
 }
-
-// func (s *AuthenticationService) Login(ctx echo.Context) error {
-
-// }
 
 // func (s *AuthenticationService) VerifyEmail(ctx echo.Context) error {
 

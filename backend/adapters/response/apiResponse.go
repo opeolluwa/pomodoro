@@ -9,7 +9,7 @@ func NewApiResponse(data any, message string) ApiResponse {
 	return ApiResponse{Data: data, Message: message}
 }
 
-type SignUpResponse struct {
+type LoginResponse struct {
 	Jwt string `json:"token"`
-	
+
 }
