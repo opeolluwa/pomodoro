@@ -16,7 +16,10 @@ type Environment struct {
 		Host     string `env:"DATABASE_HOST"`
 	}
 	ServerPort string `env:"PORT"`
-	Extras     env.EnvSet
+	Secrets    struct {
+		Jwt string `env:"JWT_SECRET"`
+	}
+	Extras env.EnvSet
 }
 
 func ExtractEnv() *Environment {

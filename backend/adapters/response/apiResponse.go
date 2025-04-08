@@ -8,3 +8,8 @@ type ApiResponse struct {
 func NewApiResponse(data any, message string) ApiResponse {
 	return ApiResponse{Data: data, Message: message}
 }
+
+type LoginResponse struct {
+	Jwt string `json:"token"`
+
+}
