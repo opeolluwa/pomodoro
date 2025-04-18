@@ -1,2 +1,2 @@
-mod user;
-mod template;
+pub mod user;
+pub mod template;

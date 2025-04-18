@@ -8,7 +8,9 @@ mod repositories;
 mod services;
 
 mod shared;
+mod errors;
 
-fn main() {
+#[tokio::main]
+async fn main() {
     println!("Hello, world!");
 }
