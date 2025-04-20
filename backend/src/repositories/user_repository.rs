@@ -1,11 +1,16 @@
 use std::sync::Arc;
 
-use sqlx::Database;
+use sqlx::{Pool, Postgres};
 
-pub struct UserRepository {}
+#[derive(Clone)]
+pub struct UserRepository {
+    pool: Arc<Pool<Postgres>>,
+}
 
 impl UserRepository {
-    pub fn new() -> Self {
-        Self {}
+    pub fn init(pool: &Pool<Postgres>) -> Self {
+        Self {
+            pool: Arc::new(pool.clone()),
+        }
     }
 }

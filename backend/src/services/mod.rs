@@ -1,4 +1,4 @@
-mod root_service;
-mod user_service;
-mod template_service;
-mod user_helper_service;
+pub mod root_service;
+pub mod template_service;
+pub mod user_helper_service;
+pub mod user_service;
