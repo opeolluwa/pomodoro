@@ -2,6 +2,8 @@
 pub enum AppError {
     #[error("App failed to start up")]
     StartupError,
+    #[error("Error parsing env due to {0}")]
+    EnvError(String),
     #[error("{0}")]
     OperationFailed(String),
 }
