@@ -1,14 +1,13 @@
 use crate::errors::user_service::UserServiceError;
-use crate::repositories::user_repository::UserRepository;
 use crate::services::user_service::UserService;
 
+#[derive(Clone)]
 pub struct UserHelperService {
-    user_repository: UserRepository,
 }
 
 impl UserHelperService {
-    pub fn init(user_repository: UserRepository) -> Self {
-        Self { user_repository }
+    pub fn init() -> Self {
+        Self {}
     }
 }
 

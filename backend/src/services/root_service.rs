@@ -1,4 +1,3 @@
-use std::os::unix::process;
 
 use crate::errors::app_error::AppError;
 
@@ -19,8 +18,6 @@ impl RootServiceTrait for RootService {
     fn shut_down(&self) -> Result<(), AppError> {
         log::info!("shutting down ...");
         std::process::exit(0);
-
-        Ok(())
     }
     fn health_check(&self) -> Result<(), AppError> {
         log::info!("application healthy ...");
